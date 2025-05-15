@@ -1,0 +1,60 @@
+[
+    {
+      "id": 1,
+      "boat_name": "Private Sunset",
+      "location": "Istanbul - Bosphorus",
+      "max_passengers": 6,
+      "price_per_hour": 1200,
+      "image_url": "/boat-images/boat-img01.jpg",
+      "company_name": "Golden Boat Tours",
+      "rating": 4.8,
+      "features": {
+        "meals_provided": true,
+        "music_system": true,
+        "wifi": true,
+        "air_conditioned": true,
+        "tour_guide": false,
+        "outdoor_seating": true,
+        "swimming_allowed": true
+      }
+    },
+    {
+      "id": 2,
+      "boat_name": "Sea Pearl",
+      "location": "Antalya - Marina",
+      "max_passengers": 4,
+      "price_per_hour": 950,
+      "image_url": "/boat-images/boat-img01.jpg",
+      "company_name": "Pearl Charter",
+      "rating": 4.6,
+      "features": {
+        "meals_provided": false,
+        "music_system": true,
+        "wifi": false,
+        "air_conditioned": false,
+        "tour_guide": true,
+        "outdoor_seating": true,
+        "swimming_allowed": true
+      }
+    },
+    {
+      "id": 3,
+      "boat_name": "Luxury Breeze",
+      "location": "Bodrum - Marina",
+      "max_passengers": 8,
+      "price_per_hour": 1800,
+      "image_url": "/boat-images/boat-img01.jpg",
+      "company_name": "Aegean Luxury Boats",
+      "rating": 5.0,
+      "features": {
+        "meals_provided": true,
+        "music_system": true,
+        "wifi": true,
+        "air_conditioned": true,
+        "tour_guide": true,
+        "outdoor_seating": true,
+        "swimming_allowed": false
+      }
+    }
+  ]
+  

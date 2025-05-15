@@ -1,0 +1,54 @@
+[
+    {
+      "id": "1",
+      "name": "John Doe",
+      "city": "Istanbul",
+      "languages": ["English", "Turkish"],
+      "expertiseLevel": "Advanced",
+      "pricePerHour": 50,
+      "reviews": [],
+      "availability": ["Monday", "Wednesday", "Friday"],
+      "specializations": ["Legal", "Technical"],
+      "isCertified": true
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "city": "Cappadocia",
+      "languages": ["English", "Arabic"],
+      "expertiseLevel": "Intermediate",
+      "pricePerHour": 40,
+      "reviews": [],
+      "rating": 4.5,
+      "availability": ["Tuesday", "Saturday"],
+      "specializations": ["Medical", "Literary"],
+      "isCertified": false
+    },
+    {
+      "id": "3",
+      "name": "Ahmet Yilmaz",
+      "city": "Izmir",
+      "languages": ["Turkish", "English"],
+      "expertiseLevel": "Beginner",
+      "pricePerHour": 30,
+      "reviews": [],
+      "rating": 3.9,
+      "availability": ["Wednesday", "Saturday"],
+      "specializations": ["General", "Tourism"],
+      "isCertified": false
+    },
+    {
+      "id": "4",
+      "name": "Fatima Al-Zahra",
+      "city": "Bodrum",
+      "languages": ["Arabic", "Turkish"],
+      "expertiseLevel": "Advanced",
+      "pricePerHour": 60,
+      "reviews": [],
+      "rating": 5.0,
+      "availability": ["Monday", "Friday"],
+      "specializations": ["Legal", "Technical"],
+      "isCertified": true
+    }
+  ]
+  

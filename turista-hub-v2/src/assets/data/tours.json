@@ -1,0 +1,203 @@
+[
+  {
+    "title": "Bodrum Beach Tour",
+    "city": "Bodrum",
+    "address": "Somewhere in Bodrum",
+
+    "price": 99,
+    "maxGroupSize": 10,
+
+"activityType": ["Beach", "Relax"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": ["Friday", "Saturday"],
+  "adventureLevel": "Low",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+    "desc": "Experience a beautiful beach tour and luxurious yacht trip in Bodrum.",
+    "reviews": [],
+    "photo": "/tour-images/tour-img01.jpg",
+    "featured": true
+    
+  },
+  {
+    "title": "Pamukkale Thermal Pools Tour",
+    "city": "Pamukkale",
+    "address": "Somewhere in Pamukkale",
+    "price": 99,
+    "maxGroupSize": 8,
+
+"activityType": ["Wellness", "Nature"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": ["Monday", "Wednesday", "Friday"],
+  "adventureLevel": "Low",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+    "desc": "Visit the famous white travertine terraces and enjoy the thermal pools in Pamukkale.",
+    "reviews": [],
+    "photo": "/tour-images/tour-img02.jpg",
+    "featured": true
+  },
+  {
+    "title": "Marmaris Boat Trip",
+    "city": "Marmaris",
+    "address": "Somewhere in Marmaris",
+    "price": 99,
+    "maxGroupSize": 8,
+
+    "activityType": ["Boat", "Relax"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": ["Friday", "Saturday"],
+  "adventureLevel": "Low",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+    "desc": "Take a boat trip around Marmaris with stunning views of the coastline.",
+    "reviews": [],
+    "photo": "/tour-images/tour-img03.jpg",
+    "featured": true
+  },
+  {
+    "title": "Trabzon Uzungöl & Sumela Monastery Tour",
+    "city": "Trabzon",
+    "address": "Somewhere in Trabzon",
+    "price": 99,
+    "maxGroupSize": 8,
+
+    "activityType": ["Cultural", "Nature"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": ["Friday", "Saturday"],
+  "adventureLevel": "Low",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+    "desc": "Explore the stunning Uzungöl lake and visit the historical Sumela Monastery.",
+    "reviews": [],
+    "photo": "/tour-images/tour-img04.jpg",
+    "featured": true
+  },
+  {
+    "title": "Fethiye Beach & Paragliding Tour",
+    "city": "Fethiye",
+    "address": "Somewhere in Fethiye",
+    "price": 99,
+    "maxGroupSize": 8,
+
+    "activityType":["Adventure", "Beach"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": ["Friday", "Saturday"],
+  "adventureLevel": "Low",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+
+    "desc": "Enjoy a beautiful beach day followed by an exhilarating paragliding experience over the sea.",
+    "reviews": [],
+    "photo": "/tour-images/tour-img05.jpg",
+    "featured": true
+  },
+  {
+    "title": "Cappadocia Hot Air Balloon Tour",
+    "city": "Cappadocia",
+    "address": "Somewhere in Cappadocia",
+    "price": 99,
+    "maxGroupSize": 8,
+
+    "activityType": ["Adventure", "Nature"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": ["Friday", "Saturday"],
+  "adventureLevel": "High",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+    "desc": "Take a hot air balloon ride and explore the fairy chimneys and ancient underground cities of Cappadocia.",
+    "reviews": [],
+    "photo": "/tour-images/tour-img06.jpg",
+    "featured": true
+  },
+  {
+    "title": "Bursa Ski Tour",
+    "city": "Bursa",
+    "address": "Somewhere in Bursa",
+    "price": 99,
+    "maxGroupSize": 8,
+
+    "activityType": ["Winter", "Adventure"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": [ "Saturday"],
+  "adventureLevel": "High",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+    "desc": "Experience the thrill of skiing on the slopes of Mount Uludağ in Bursa.",
+    "reviews": [],
+    "photo": "/tour-images/tour-img07.jpg",
+    "featured": true
+  },
+  {
+    "title": "Sabanca",
+    "city": "Sabanca",
+    "address": "Somewhere in Sabanca",
+    "price": 99,
+    "maxGroupSize": 5,
+
+    "activityType": ["Nature"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": ["Friday", "Saturday"],
+  "adventureLevel": "Low",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+    "desc": "...",
+    "reviews": [],
+    "photo": "/tour-images/tour-img08.jpg",
+    "featured": false
+  },
+  {
+    "title": "Izmir tour",
+    "city": "Izmir",
+    "address": "Somewhere in Izmir",
+    "price": 99,
+    "maxGroupSize": 8,
+
+    "activityType": ["Beach", "Relax"],
+  "internet": true,
+  "familyFriendly": false,
+  "durationType": "day",
+  "availableDays": ["Friday", "Saturday"],
+  "adventureLevel": "Low",
+  "guideIncluded": false,
+  "languages": ["Turkish", "English"],
+  "mealsIncluded": true,
+
+    "desc": "...",
+    "reviews": [],
+    "photo": "/tour-images/tour-img09.jpg",
+    "featured": false
+  }
+]
