@@ -5,6 +5,7 @@ import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo.png'
 
+import { useTranslation } from 'react-i18next'
 
 
 const quick__links = [
@@ -54,6 +55,7 @@ const quick__links2 = [
 
 const Footer = () => {
 
+  const {t} = useTranslation()
 
 const year = new Date().getFullYear();
 
@@ -102,12 +104,12 @@ const year = new Date().getFullYear();
 
 
         <Col lg='3'>
-          <h5 className='footer__link-title'>Discover</h5>
+          <h5 className='footer__link-title'>{t('Discover')}</h5>
           <ListGroup className='footer__quick-links'>
             {
               quick__links.map((item, index) => (
                 <ListGroupItem key={index} className='ps-0 border-0'>
-                  <Link to={item.path}>{item.display}</Link>
+                  <Link to={item.path}>{t(item.display)}</Link>
                 </ListGroupItem>
               ))
             }
@@ -117,12 +119,12 @@ const year = new Date().getFullYear();
 
 
         <Col lg='3'>
-          <h5 className='footer__link-title'> Quick links</h5>
+          <h5 className='footer__link-title'> {t('Quick links')}</h5>
           <ListGroup className='footer__quick-links'>
             {
               quick__links2.map((item, index) => (
                 <ListGroupItem key={index} className='ps-0 border-0'>
-                  <Link to={item.path}>{item.display}</Link>
+                  <Link to={item.path}>{t(item.display)}</Link>
                 </ListGroupItem>
               ))
             }
@@ -134,7 +136,7 @@ const year = new Date().getFullYear();
 
 
         <Col lg='3'>
-          <h5 className='footer__link-title'> Contacts</h5>
+          <h5 className='footer__link-title'> {t('Contacts')}</h5>
           <ListGroup className='footer__quick-links'>
 
             <ListGroupItem className='ps-0 border-0 d-flex align-items-center'>
@@ -142,7 +144,7 @@ const year = new Date().getFullYear();
               <h6 className='mb-0 d-flex align-items-center gap-2'>
                 <span>
                  <i className="fa-solid fa-location-dot"></i>
-                  Address:
+                 {t('Address')}
 
                 </span></h6>
 
@@ -154,7 +156,7 @@ const year = new Date().getFullYear();
 
               <h6 className='mb-0 d-flex align-items-center gap-2'>
                 <span>
-               <i className="fa-solid fa-envelope"></i>Email:
+               <i className="fa-solid fa-envelope"></i>{t('Email')}:
 
                 </span></h6>
 
@@ -164,7 +166,7 @@ const year = new Date().getFullYear();
 
               <h6 className='mb-0 d-flex align-items-center gap-2'>
                 <span>
-               <i className="fa-solid fa-phone"></i>Phone:
+               <i className="fa-solid fa-phone"></i>{t('Phone')}:
                 </span></h6>
 
               <p className='mb-0'> 05526462923</p>

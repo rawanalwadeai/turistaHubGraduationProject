@@ -8,12 +8,16 @@ import { Container, Row, Col } from 'reactstrap';
 import useFetchA from '../hooks/useFetchA.js';
 import { BASE_URL } from '../utils/configB.js';
 
+
+import { useTranslation } from 'react-i18next';
 const Boat = () => {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage]         = useState(0);
   const [showFilterPanel, setShowFilterPanel] = useState(false);
   const [filteredBoats, setFilteredBoats]     = useState([]);
 
+
+  const {t} = useTranslation()
   // جلب بيانات القوارب والعدد الكلي
   const { data: boats, loading, error }       = useFetchA(`${BASE_URL}/boats?page=${page}`);
   const { data: boatCount }                   = useFetchA(`${BASE_URL}/boats/count`);
@@ -52,7 +56,7 @@ const Boat = () => {
 
   return (
     <>
-      <CommonSection title="Boat Rentals" />
+      <CommonSection title={t('boat_rentals')} />
 
 
       <section>
@@ -65,7 +69,7 @@ const Boat = () => {
                 onClick={() => setShowFilterPanel(!showFilterPanel)}
               >
                 {showFilterPanel
-                  ? 'Close Filter'
+                  ? t('close_filter')
                   : <i className="fa-solid fa-filter" style={{ color: 'white' }} />}
               </button>
             </Col>
@@ -81,7 +85,7 @@ const Boat = () => {
           )}
 
           {/* الحالة أثناء التحميل أو الخطأ */}
-          {loading && <h4 className="text-center pt-5">Loading...</h4>}
+          {loading && <h4 className="text-center pt-5">{t('loading')}</h4>}
           {error   && <h4 className="text-center pt-5">{error}</h4>}
 
           {/* عرض القوارب */}

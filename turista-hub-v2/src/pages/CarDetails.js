@@ -1,4 +1,4 @@
-import React, { useRef, useState, useContext ,useEffect } from 'react';
+import React, { useRef, useState, useContext, useEffect } from 'react';
 import '../styles/tour-details.css'; // يمكن تخصيص ملف CSS لصفحة تفاصيل السيارة
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap';
 import { useParams } from 'react-router-dom';
@@ -15,11 +15,15 @@ import { toast } from 'react-toastify';
 import { AuthContext } from './../context/AuthContext'
 
 
+
+import { useTranslation } from 'react-i18next';
 const CarDetails = () => {
   const { id } = useParams();
   const reviewMsgRef = useRef('');
   const [carRating, setCarRating] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const { t } = useTranslation()
 
   const { user } = useContext(AuthContext)
 
@@ -27,7 +31,7 @@ const CarDetails = () => {
 
 
   // استخراج الخصائص من كائن السيارة
-  const {  title, desc, price, address, reviews,photo, city, maxRentalPeriod } = car || {};
+  const { title, desc, price, address, reviews, photo, city, maxRentalPeriod } = car || {};
 
   const { totalRating, avgRating } = calculateAvgRating(reviews);
 
@@ -48,7 +52,10 @@ const CarDetails = () => {
     try {
 
 
-      if (!user) { toast.error('Please sign in') }
+      if (!user) {
+        return toast.error(t('signInError'));
+      }
+     if (isSubmitting) return;
 
 
       const reviewObj = {
@@ -58,6 +65,8 @@ const CarDetails = () => {
         reviewText,
         rating: carRating,
       }
+        setIsSubmitting(true); // قفل الإرسال مؤقتًا
+
 
       const res = await fetch(`${BASE_URL}/reviews/cars/${id}`, {
 
@@ -81,7 +90,9 @@ const CarDetails = () => {
     } catch (err) {
       toast.error(err.message)
 
-    }
+    }  finally {
+    setIsSubmitting(false); // نسمح بالإرسال مرة ثانية
+  }
 
   };
 
@@ -95,7 +106,7 @@ const CarDetails = () => {
 
 
           {
-            loading && <h4 className='text-center pt-5'>Loading..........</h4>
+            loading && <h4 className='text-center pt-5'>{t('loading')}</h4>
           }
           {
             error && <h4 className='text-center pt-5'>{error}</h4>
@@ -105,7 +116,7 @@ const CarDetails = () => {
             !loading && !error && <Row>
               <Col lg='8'>
                 <div className="tour__content">
-                <img src={`/${photo}`} alt={title} />
+                  <img src={`/${photo}`} alt={title} />
 
 
 
@@ -117,7 +128,7 @@ const CarDetails = () => {
                       <span className="tour__rating d-flex align-items-center gap-1">
                         <i className="fa-solid fa-star" style={{ color: 'var(--secondary-color)' }}></i>
                         {avgRating === 0 ? null : avgRating}
-                        {totalRating === 0 ? 'Not rated' : <span>({reviews.length})</span>}
+                        {totalRating === 0 ? t('notRated') : <span>({reviews.length})</span>}
                       </span>
 
                       <span>
@@ -127,48 +138,35 @@ const CarDetails = () => {
 
                     <div className='tour__extra-details'>
                       {/* <span><i className="fa-solid fa-map-pin"></i> {city}</span> */}
-                      <span><i className="fa-solid fa-turkish-lira-sign"></i>${price} / per day</span>
-                      <span><i className="fa-solid fa-clock"></i> Max rental period: {maxRentalPeriod} days</span>
-                    
-                    
-                    
-  <span><i className="fa-solid fa-car-side"></i> Model: {car.model}</span>
-  <span><i className="fa-solid fa-calendar"></i> Year: {car.year}</span>
-  <span><i className="fa-solid fa-gas-pump"></i> Fuel Type: {car.fuelType}</span>
-  <span><i className="fa-solid fa-door-closed"></i> Doors: {car.doors}</span>
-  <span><i className="fa-solid fa-chair"></i> Seats: {car.seats}</span>
-  <span><i className="fa-solid fa-shield-alt"></i> Insurance: {car.insurance}</span>
-  <span><i className="fa-solid fa-car"></i> Condition: {car.condition}</span>
-  <span><i className="fa-solid fa-user-tie"></i> Driver Option: {car.driverOption}</span>
-  <span><i className="fa-solid fa-road"></i> Mileage: {car.mileage} km</span>
-  <span><i className="fa-solid fa-palette"></i> Color: {car.color}</span>
-  <span><i className="fa-solid fa-cogs"></i> Transmission: {car.transmission}</span>
-  <span><i className="fa-solid fa-truck"></i> Delivery Service: {car.deliveryService ? 'Available' : 'Not Available'}</span>
-  {car.amenities?.length > 0 && (
-    <span><i className="fa-solid fa-star"></i> Amenities: {car.amenities.join(', ')}</span>
-  )}
+                      <span><i className="fa-solid fa-turkish-lira-sign"></i>${price} {t('pricePerDay')}</span>
+                      <span>{t('maxRentalPeriod', { days: maxRentalPeriod })}</span>
 
-
-                    
-                    
-                    
+                      <span><i className="fa-solid fa-car-side"></i> {t('model')}: {car.model}</span>
+                      <span><i className="fa-solid fa-calendar"></i> {t('year')}: {car.year}</span>
+                      <span><i className="fa-solid fa-gas-pump"></i> {t('fuelType')}: {car.fuelType}</span>
+                      <span><i className="fa-solid fa-door-closed"></i> {t('doors')}: {car.doors}</span>
+                      <span><i className="fa-solid fa-chair"></i> {t('seats')}: {car.seats}</span>
+                      <span><i className="fa-solid fa-shield-alt"></i> {t('insurance')}: {car.insurance}</span>
+                      <span><i className="fa-solid fa-car"></i> {t('condition')}: {car.condition}</span>
+                      <span><i className="fa-solid fa-user-tie"></i> {t('driverOption')}: {car.driverOption}</span>
+                      <span><i className="fa-solid fa-road"></i> {t('mileage')}: {car.mileage} km</span>
+                      <span><i className="fa-solid fa-palette"></i> {t('color')}: {car.color}</span>
+                      <span><i className="fa-solid fa-cogs"></i> {t('transmission')}: {car.transmission}</span>
+                      <span><i className="fa-solid fa-truck"></i> {t('deliveryService')}: {car.deliveryService ? t('available') : t('notAvailable')}</span>
+                      {car.amenities?.length > 0 && (
+                        <span><i className="fa-solid fa-star"></i> {t('amenities')}: {car.amenities.join(', ')}</span>
+                      )}
                     </div>
 
-                    <h5>Description</h5>
+                    <h5>{t('description')}</h5>
                     <p>{desc}</p>
                   </div>
 
-                  {/* قسم المراجعات */}
                   <div className='tour__reviews mt-4'>
-                    <h4>Reviews ( {reviews?.length}  reviews)</h4>
-
-
+                    <h4>{t('reviews', { count: reviews?.length || 0 })}</h4>
 
                     <Form onSubmit={submitHandler}>
                       <div className="d-flex align-items-center  gap-3 mb-4 rating__group">
-
-
-
                         {[1, 2, 3, 4, 5].map((star) => (
                           <span
                             key={star}
@@ -178,15 +176,19 @@ const CarDetails = () => {
                             <i className="fa-solid fa-star"></i>
                           </span>
                         ))}
+                      </div>
 
-</div>
-
-                        <div className='review__input'>
-                          <input type='text' ref={reviewMsgRef} placeholder='Share your thoughts' required />
-                          <button className='btn primary__btn text-white' type='submit'>
-                            Submit
-                          </button>
-                        </div>
+                      <div className='review__input'>
+                        <input
+                          type='text'
+                          ref={reviewMsgRef}
+                          placeholder={t('shareThoughts')}
+                          required
+                        />
+                        <button className='btn primary__btn text-white' type='submit'>
+                          {t('submit')}
+                        </button>
+                      </div>
                     </Form>
 
                     <ListGroup className='user__reviews'>

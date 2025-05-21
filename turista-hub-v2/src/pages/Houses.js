@@ -11,7 +11,12 @@ import useFetchA from '../hooks/useFetchA.js';
 import { BASE_URL } from '../utils/configB.js';
 import HouseFilter from '../componenets/HouseFilter.js';
 
+
+import { useTranslation } from 'react-i18next'
+
 const Houses = () => {
+ const {t} = useTranslation()
+ 
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
 
@@ -81,7 +86,7 @@ const Houses = () => {
 
   return (
     <>
-      <CommonSection title={"Rental Houses"} />
+      <CommonSection title={t('rental_houses')} />
       {/* <section>
         <Container>
           <Row>
@@ -102,7 +107,7 @@ const Houses = () => {
               <button className='btn primary__btn'
                 onClick={() => setShowFilterPanell(!showFilterPanell)}
               >
-                {showFilterPanell ? 'Close Filter' : <i className="fa-solid fa-filter" style={{'color': 'white'}}></i>}
+                {showFilterPanell ? t('close_filter') : <i className="fa-solid fa-filter" style={{'color': 'white'}}></i>}
               </button>
             </Col>
           </Row>
@@ -115,7 +120,7 @@ const Houses = () => {
             </Row>
           )}
 
-        {loading && <h4 className='text-center pt-5'>Loading.....</h4>}
+        {loading && <h4 className='text-center pt-5'>{('loading')}.</h4>}
         {error && <h4 className='text-center pt-5'>{error}</h4>}
         {
           !loading && !error && <Row>

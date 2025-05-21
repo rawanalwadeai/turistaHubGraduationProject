@@ -18,8 +18,11 @@ import { BASE_URL } from '../utils/configB.js'
 
 
 
-const Tour = () => {
+import { useTranslation } from 'react-i18next'
 
+
+const Tour = () => {
+const {t} = useTranslation()
 
 const [pageCount ,setPageCount] = useState(0)
 const [page,setPage] =useState(0)
@@ -98,7 +101,7 @@ useEffect(() => {
 </section> */}
 
 
-<CommonSection title={"All tours"} />
+<CommonSection title={t('all_tours')} />
 {/* <section>
         <Container>
           <Row>
@@ -125,7 +128,7 @@ useEffect(() => {
               <button className='btn primary__btn'
                 onClick={() => setShowFilterPanel(!showFilterPanel)}
               >
-                {showFilterPanel ? 'Close Filter' : <i className="fa-solid fa-filter" style={{'color': 'white'}}></i>}
+                {showFilterPanel ? t('close_filter') : <i className="fa-solid fa-filter" style={{'color': 'white'}}></i>}
               </button>
             </Col>
           </Row>
@@ -138,7 +141,7 @@ useEffect(() => {
             </Row>
           )}
 {/*** F */}
-{loading && <h4 className='text-center pt-5'>Loading.....</h4>}
+{loading && <h4 className='text-center pt-5'>{t('loading')}</h4>}
 {error && <h4 className='text-center pt-5'>{error}</h4>}
 
     {

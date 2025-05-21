@@ -1,5 +1,434 @@
 {
-    "welcome": "Welcome",
-    "homeTitle": "Your Trusted Travel Partner"
-  }
+
+  "Home": "Ana Sayfa",
+  "Tour": "Tur",
+  "House": "Evler",
+  "Car": "Arabalar",
+  "Translator": "Çevirmen",
+  "Boat": "Tekne",
+  "Login": "Giriş Yap",
+  "Register": "Kayıt Ol",
+  "Logout": "Çıkış Yap",
+   
+
+  "know_before_you_go": "Gitmeden Önce Bil",
+  "travelling_opens_the_door": "SEYAHAT HATIRA YARATMANIN KAPISINI AÇAR",
+  "memories": "Anılar",
+  "trip_description": "Seyahatiniz kolaylaştı—evler, arabalar ve turlar tek yerde",
+  "what_we_serve": "Hizmetlerimiz",
+  "best_service": "En İyi Hizmetimizi Sunuyoruz",
+  "explore": "Keşfet",
+  "featured_tours": "Öne Çıkan Turlarımız",
+  "featured_boats": "Öne Çıkan Teknelerimiz",
+  "experience": "Deneyim",
+  "trusted_travel_partner": "Güvendiğiniz Seyahat Ortağınız",
+  "best_travel_experience": "Size en iyi seyahat deneyimini sunmaya kararlıyız",
+  "customer_testimonials": "Müşteri Görüşleri",
+  "what_customers_say": "Müşterilerimiz Hakkımızda Ne Diyor",
+
+
+ "services": {
+    "accommodationBooking": {
+      "title": "Konaklama Rezervasyonu",
+      "desc": "İhtiyaçlarınıza uygun konforlu otel seçenekleri sunuyoruz."
+    },
+    "carRentalService": {
+      "title": "Araç Kiralama Hizmeti",
+      "desc": "Seyahatinizi kolaylaştırmak için güvenilir ve konforlu araç kiralama seçenekleri."
+    },
+    "tourGuideService": {
+      "title": "Tur ve Rehber Hizmeti",
+      "desc": "Profesyonel rehberlerle unutulmaz tur ve seyahat deneyimleri."
+    }
+  },
+
   
+
+"Discover": "Keşfet",
+  "Quick links": "Hızlı bağlantılar",
+  "Contacts": "İletişim",
+  "Address": "Adres",
+  "Email": "E-posta",
+  "Phone": "Telefon",
+  "Home": "Ana Sayfa",
+  "Tour": "Tur",
+  "Houses": "Evler",
+  "Cars": "Arabalar",
+  "Login": "Giriş Yap",
+  "Register": "Kayıt Ol",
+
+    "all_tours": "Tüm Turlar",
+  "close_filter": "Filtreyi Kapat",
+  "loading": "Yükleniyor.....",
+  "error_loading": "Yükleme hatası",
+
+
+   "rental_houses": "Kiralık Evler",
+  "pagination_page": "Sayfa",
+
+   "all_cars": "Tüm Arabalar",
+   "boat_rentals": "Tekne Kiralama",
+   "all_translators": "Tüm Tercümanlar",
+
+  "notRated": "Puan verilmedi",
+  "type": "Tür",
+  "company": "Şirket",
+  "pricePerSession": " /seans",
+  "meals": "Yemekler",
+  "music": "Müzik",
+  "wifi": "Wi-Fi",
+  "ac": "Klima",
+  "guide": "Rehber",
+  "outdoor": "Açık Hava",
+  "swimming": "Yüzme",
+  "description": "Açıklama",
+  "reviewTitle": "Yorumlar ({{count}} yorum)",
+  "shareThoughts": "Düşüncelerinizi paylaşın",
+  "submit": "Gönder",
+  "pleaseSignIn": "Lütfen giriş yapın",
+  "reviewSuccess": "Yorum başarıyla gönderildi",
+  "reviewError": "Yorum gönderilirken hata oluştu",
+  "noUserFound": "Kullanıcı bulunamadı",
+  "reviews": " yorum",
+
+  
+  "pricePerDay": " / gün başına",
+  "maxRentalPeriod": "Maksimum kiralama süresi: {{days}} gün",
+  "model": "Model",
+  "year": "Yıl",
+  "fuelType": "Yakıt Türü",
+  "doors": "Kapılar",
+  "seats": "Koltuklar",
+  "insurance": "Sigorta",
+  "condition": "Durum",
+  "driverOption": "Sürücü Seçeneği",
+  "mileage": "Kilometre",
+  "color": "Renk",
+  "transmission": "Vites",
+  "deliveryService": "Teslimat Hizmeti",
+  "available": "Mevcut",
+  "notAvailable": "Mevcut değil",
+  "amenities": "İmkanlar",
+  "description": "Açıklama",
+  "reviews": "Yorumlar ({{count}} yorum)",
+  "shareThoughts": "Düşüncelerini paylaş",
+  "submit": "Gönder",
+  "pleaseSignIn": "Lütfen giriş yapınız",
+
+
+    "loading": "Yükleniyor..........",
+    "error": "Veriler yüklenirken hata oluştu",
+    "reviews": "Yorumlar",
+    "shareThoughts": "Düşüncelerinizi paylaşın",
+    "submit": "Gönder",
+    "description": "Açıklama",
+    "notRated": "Değerlendirilmedi",
+    "people": "kişi",
+    "bedrooms": "Yatak odası",
+    "bathrooms": "Banyo",
+    "perNight": "/ gece başına",
+    "signInError": "Lütfen giriş yapın",
+
+  "not_rated": "Henüz puanlanmadı",
+  "submit": "Gönder",
+  "description": "Açıklama",
+  "per_person": "/ kişi başı",
+  "people": "kişi",
+  "please_sign_in": "Lütfen giriş yapın",
+  "submit_success": "Yorum başarıyla gönderildi",
+  "submit_error": "Yorum gönderilirken hata oluştu",
+
+   "reviews": "Yorumlar  ",
+    "notRated": "Henüz değerlendirilmedi",
+    "description": "Açıklama",
+    "shareYourThoughts": "Düşüncelerinizi paylaşın",
+    "submit": "Gönder",
+    "sessionPrice": "{{price}} / oturum",
+    "languages": "Diller",
+    "location": "Konum",
+    "rating": "Değerlendirme",
+
+    "featured": "Öne çıkan",
+  "notRated": "Derecelendirilmedi",
+  "perHour": "/ saat başı",
+  "viewDetails": "Detayları Gör",
+  "upToGuests": "{{count}} kişiye kadar",
+
+   "featured": "Öne çıkan",
+  "notRated": "Derecelendirilmedi",
+  "type": "Tip",
+  "fuel": "Yakıt",
+  "transmission": "Vites",
+  "perDay": "/ günlük",
+  "rentNow": "Şimdi kirala",
+
+
+   "notRated": "Derecelendirilmedi",
+  "bedrooms": "Yatak odası",
+  "perNight": "/gecelik",
+  "viewDetails": "Detayları Gör",
+
+
+    "featured": "Öne çıkan",
+  "notRated": "Derecelendirilmedi",
+  "perPerson": "/kişi başı",
+  "bookNow": "Şimdi rezerve et",
+
+
+   "featured": "Öne Çıkan",
+  "notRated": "Henüz puanlanmadı",
+  "type": "Tür",
+  "languages": "Diller",
+  "availableDays": "Müsait Günler",
+  "perDay": "/günlük",
+  "bookNow": "Hemen Rezervasyon Yap",
+  "male": "Erkek",
+  "female": "Kadın",
+  "Monday": "Pazartesi",
+  "Tuesday": "Salı",
+  "Wednesday": "Çarşamba",
+  "Thursday": "Perşembe",
+  "Friday": "Cuma",
+  "Saturday": "Cumartesi",
+  "Sunday": "Pazar",
+  "arabic": "Arapça",
+  "english": "İngilizce",
+  "turkish": "Türkçe",
+
+   "filter": {
+    "city": "Şehir",
+    "activityType": "Aktivite Türü",
+    "adventureLevel": "Macera Seviyesi",
+    "availableDays": "Mevcut Günler",
+    "guideIncluded": "Rehber Dahil",
+    "mealsIncluded": "Yemekler Dahil",
+    "any": "Herhangi",
+    "clearFilters": "Filtreleri Temizle"
+  },
+  "cities": {
+    "bodrum": "Bodrum",
+    "pamukkale": "Pamukkale",
+    "marmaris": "Marmaris",
+    "trabzon": "Trabzon",
+    "fethiye": "Fethiye",
+    "cappadocia": "Kapadokya",
+    "bursa": "Bursa",
+    "sabanca": "Sapanca",
+    "izmir": "İzmir"
+  },
+  "activities": {
+    "beach": "Plaj",
+    "relax": "Rahatlama",
+    "adventure": "Macera",
+    "nature": "Doğa",
+    "cultural": "Kültürel",
+    "wellness": "Sağlık",
+    "winter": "Kış"
+  },
+  "days": {
+    "monday": "Pazartesi",
+    "wednesday": "Çarşamba",
+    "friday": "Cuma",
+    "saturday": "Cumartesi"
+  },
+  "adventureLevels": {
+    "low": "Düşük",
+    "high": "Yüksek"
+  },
+  "yes": "Evet",
+  "no": "Hayır",
+
+
+  "location": "Konum",
+  "maxPassengers": "Maksimum Yolcu",
+  "pricePerHour": "Saatlik Fiyat",
+  "rating": "Puan",
+  "features": "Özellikler",
+  "clearFilters": "Filtreleri Temizle",
+  "passenger": "Yolcu",
+  "passengers": "Yolcular",
+  "under": "Altında",
+  "starsAndUp": "yıldız ve üzeri",
+  "stars": "yıldız",
+
+
+  "meals_provided": "Yemek Sağlanır",
+  "music_system": "Müzik Sistemi",
+  "wifi": "Wi-Fi",
+  "air_conditioned": "Klimalı",
+  "tour_guide": "Tur Rehberi",
+  "outdoor_seating": "Açık Oturma Alanı",
+  "swimming_allowed": "Yüzmeye İzin Verilir",
+
+
+ "location": "Konum",
+  "type": "Tip",
+  "fuelType": "Yakıt Tipi",
+  "doors": "Kapılar",
+  "seats": "Koltuklar",
+  "rentalPrice": "Kiralama Fiyatı",
+  "transmission": "Vites",
+  "condition": "Durum",
+  "amenities": "Olanaklar",
+  "clearFilters": "Filtreleri Temizle",
+  "Istanbul": "İstanbul",
+  "Ankara": "Ankara",
+  "Izmir": "İzmir",
+  "Antalya": "Antalya",
+  "Sedan": "Sedan",
+  "SUV": "SUV",
+  "Sports": "Spor",
+  "Luxury": "Lüks",
+  "Electric": "Elektrikli",
+  "Petrol": "Benzin",
+  "Diesel": "Dizel",
+  "Automatic": "Otomatik",
+  "Manual": "Manuel",
+  "New": "Yeni",
+  "Like New": "Yeni Gibi",
+  "Used": "Kullanılmış",
+  "Air Conditioning": "Klima",
+  "Bluetooth": "Bluetooth",
+  "GPS": "GPS",
+  "Leather Seats": "Deri Koltuklar",
+  "Sunroof": "Tavan Açılır",
+  "Door": "Kapı",
+  "Seat": "Koltuk",
+  "Under": "Altında",
+
+
+  "city": "Şehir",
+  "type": "Tür",
+  "price": "Fiyat",
+  "bedrooms": "Yatak Odaları",
+  "bathrooms": "Banyolar",
+  "maxGroupSize": "Maksimum Grup Boyutu",
+  "amenities": "İmkanlar",
+  "clearFilters": "Filtreleri Temizle",
+  
+  "Istanbul": "İstanbul",
+  "Ankara": "Ankara",
+  "Sapanca": "Sapanca",
+
+  "Apartment": "Daire",
+  "Villa": "Villa",
+  "Cottage": "Köşk",
+  "Mountain House": "Dağ Evi",
+  "Eco Cabin": "Ekolojik Kabin",
+  "Traditional House": "Geleneksel Ev",
+
+  "Under 50": "50 Altında",
+  "Under 100": "100 Altında",
+  "Under 150": "150 Altında",
+  "Under 200": "200 Altında",
+
+  "Bedroom": "Yatak Odası",
+  "Bedrooms": "Yatak Odaları",
+
+  "Bathroom": "Banyo",
+  "Bathrooms": "Banyolar",
+
+  "wifi": "Wi-Fi",
+  "parking": "Park Yeri",
+  "pool": "Havuz",
+  "petsAllowed": "Evcil Hayvanlara İzin Verilir",
+  "elevator": "Asansör",
+  "airConditioning": "Klima",
+  "heating": "Isıtma",
+  "kitchen": "Mutfak",
+  "laundry": "Çamaşırhane",
+
+
+  "City": "Şehir",
+  "Languages": "Diller",
+  "Expertise Level": "Uzmanlık Seviyesi",
+  "Price Per Hour": "Saatlik Ücret",
+  "Rating": "Puan",
+  "Reviews Count": "İnceleme Sayısı",
+  "Availability": "Mevcut Günler",
+  "Specializations": "Uzmanlıklar",
+  "Clear Filters": "Filtreleri Temizle",
+  "Beginner": "Başlangıç",
+  "Intermediate": "Orta",
+  "Advanced": "İleri",
+  "Monday": "Pazartesi",
+  "Wednesday": "Çarşamba",
+  "Friday": "Cuma",
+  "Saturday": "Cumartesi",
+  "Medical": "Tıbbi",
+  "Legal": "Hukuki",
+  "Technical": "Teknik",
+  "Tourism": "Turizm",
+  "Price": "Fiyat",
+
+
+   "ThankYou": "Teşekkürler",
+  "BookingConfirmed": "Rezervasyonunuz onaylandı",
+  "BackToHome": "Ana Sayfaya Dön",
+
+
+
+  "information": "Bilgiler",
+  "fullNamePlaceholder": "Ad Soyad",
+  "phonePlaceholder": "Telefon",
+  "guestPlaceholder": "Misafir",
+  "serviceCharge": "Hizmet ücreti",
+  "total": "Toplam",
+  "bookNow": "Şimdi Rezervasyon Yap",
+  "pleaseSignIn": "Lütfen giriş yapın",
+
+
+
+   "pleaseSignIn": "Lütfen rezervasyon yapmak için giriş yapınız",
+  "perHour": "saat başı",
+  "booking": "Rezervasyon",
+  "fullNamePlaceholder": "Tam Adı",
+  "phonePlaceholder": "Telefon",
+  "guestPlaceholder": "Misafir Sayısı",
+  "rentalHoursPlaceholder": "Kiralama Süresi (saat)",
+  "price": "Fiyat",
+  "serviceFee": "Hizmet Ücreti",
+  "total": "Toplam",
+  "bookNow": "Şimdi Rezervasyon Yap",
+
+
+  "pricePerDay": "Günlük Fiyat",
+  "perDay": "/ gün",
+  "rentalInformation": "Kiralama Bilgileri",
+  "fullNamePlaceholder": "Tam Adı",
+  "phonePlaceholder": "Telefon Numarası",
+  "pickupDate": "Teslim Tarihi",
+  "endDate": "İade Tarihi",
+  "rentalDays": "Kiralama Günü",
+  "price": "Fiyat",
+  "serviceFee": "Hizmet Ücreti",
+  "total": "Toplam",
+  "bookCar": "Aracı Kirala",
+  "pleaseSignIn": "Lütfen giriş yapınız",
+  "day": "gün",
+
+
+
+   "pleaseSignIn": "Lütfen giriş yapın",
+  "perNight": "gece başına",
+  "information": "Bilgiler",
+  "fullName": "Tam Adı",
+  "phone": "Telefon",
+  "guests": "Misafirler",
+  "price": "Fiyat",
+  "serviceCharge": "Servis Ücreti",
+  "total": "Toplam",
+  "book": "Rezerve Et",
+
+
+  
+  "searchResult":"Arama sonuçları",
+  "notFound":"Sonuç bulunamadı ",
+
+
+  "explore_search":"Favori destinasyonuna göre turları keşfet",
+
+        "Searchbycity":"Şehre göre ara"
+
+
+  }

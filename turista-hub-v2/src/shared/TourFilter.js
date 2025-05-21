@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import Select from 'react-select'
 import { Row, Col, Button } from 'reactstrap'
 import '../styles/tour-filter.css'
+import { useTranslation } from 'react-i18next'
 
 const TourFilter = ({ onFilter }) => {
+  const { t } = useTranslation()
+
   const [filters, setFilters] = useState({
     city: '',
     activityType: [],
@@ -18,10 +21,6 @@ const TourFilter = ({ onFilter }) => {
     setFilters({ ...filters, [field]: value })
   }
 
-  // const handleApply = () => {
-  //   onFilter(filters)
-  // }
-
   const handleReset = () => {
     const resetFilters = {
       city: '',
@@ -31,52 +30,47 @@ const TourFilter = ({ onFilter }) => {
       guideIncluded: null,
       mealsIncluded: null,
       languages: [],
-    };
-    setFilters(resetFilters);
-    onFilter(resetFilters);  // إرسال الفلاتر الفارغة للمكون الأب
-  };
+    }
+    setFilters(resetFilters)
+    onFilter(resetFilters)
+  }
 
   const cityOptions = [
-    { value: 'Bodrum', label: 'Bodrum' },
-    { value: 'Pamukkale', label: 'Pamukkale' },
-    { value: 'Marmaris', label: 'Marmaris' },
-    { value: 'Trabzon', label: 'Trabzon' },
-    { value: 'Fethiye', label: 'Fethiye' },
-    { value: 'Cappadocia', label: 'Cappadocia' },
-    { value: 'Bursa', label: 'Bursa' },
-    { value: 'Sabanca', label: 'Sabanca' },
-    { value: 'Izmir', label: 'Izmir' },
+    { value: 'Bodrum', label: t('cities.bodrum') },
+    { value: 'Pamukkale', label: t('cities.pamukkale') },
+    { value: 'Marmaris', label: t('cities.marmaris') },
+    { value: 'Trabzon', label: t('cities.trabzon') },
+    { value: 'Fethiye', label: t('cities.fethiye') },
+    { value: 'Cappadocia', label: t('cities.cappadocia') },
+    { value: 'Bursa', label: t('cities.bursa') },
+    { value: 'Sabanca', label: t('cities.sabanca') },
+    { value: 'Izmir', label: t('cities.izmir') },
   ]
 
   const activityOptions = [
-    { value: 'Beach', label: 'Beach' },
-    { value: 'Relax', label: 'Relax' },
-    { value: 'Adventure', label: 'Adventure' },
-    { value: 'Nature', label: 'Nature' },
-    { value: 'Cultural', label: 'Cultural' },
-    { value: 'Wellness', label: 'Wellness' },
-    { value: 'Winter', label: 'Winter' },
+    { value: 'Beach', label: t('activities.beach') },
+    { value: 'Relax', label: t('activities.relax') },
+    { value: 'Adventure', label: t('activities.adventure') },
+    { value: 'Nature', label: t('activities.nature') },
+    { value: 'Cultural', label: t('activities.cultural') },
+    { value: 'Wellness', label: t('activities.wellness') },
+    { value: 'Winter', label: t('activities.winter') },
   ]
 
   const dayOptions = ['Monday', 'Wednesday', 'Friday', 'Saturday'].map(day => ({
-    value: day, label: day
+    value: day,
+    label: t(`days.${day.toLowerCase()}`),
   }))
 
-
-//عشان الفلتره الفوريه 
   useEffect(() => {
-onFilter(filters)
-  } , [filters])
+    onFilter(filters)
+  }, [filters])
 
-  
-  // const languageOptions = ['English', 'Turkish'].map(lang => ({
-  //   value: lang, label: lang
-  // }))
   return (
     <div className="tour-filter p-3 rounded shadow mb-4">
       <Row>
         <Col lg="3" md="4">
-          <label>City</label>
+          <label>{t('filter.city')}</label>
           <Select
             options={cityOptions}
             value={cityOptions.find(option => option.value === filters.city) || null}
@@ -86,7 +80,7 @@ onFilter(filters)
         </Col>
 
         <Col lg="3" md="4">
-          <label>Activity Type</label>
+          <label>{t('filter.activityType')}</label>
           <Select
             options={activityOptions}
             isMulti
@@ -96,20 +90,20 @@ onFilter(filters)
         </Col>
 
         <Col lg="3" md="4">
-          <label>Adventure Level</label>
+          <label>{t('filter.adventureLevel')}</label>
           <select
             className="form-select"
             value={filters.adventureLevel}
             onChange={(e) => handleChange('adventureLevel', e.target.value)}
           >
-            <option value="">Any</option>
-            <option value="Low">Low</option>
-            <option value="High">High</option>
+            <option value="">{t('filter.any')}</option>
+            <option value="Low">{t('adventureLevels.low')}</option>
+            <option value="High">{t('adventureLevels.high')}</option>
           </select>
         </Col>
 
         <Col lg="3" md="4">
-          <label>Available Days</label>
+          <label>{t('filter.availableDays')}</label>
           <Select
             options={dayOptions}
             isMulti
@@ -117,17 +111,9 @@ onFilter(filters)
             onChange={(selected) => handleChange('availableDays', selected.map(s => s.value))}
           />
         </Col>
-         {/* <Col lg="3" md="4">
-          <label>Languages</label>
-          <Select
-            options={languageOptions}
-            isMulti
-            onChange={(selected) => handleChange('languages', selected.map(s => s.value))}
-          />
-        </Col> */}
 
         <Col lg="3" md="4">
-          <label>Guide Included</label>
+          <label>{t('filter.guideIncluded')}</label>
           <select
             className="form-select"
             value={filters.guideIncluded === null ? '' : filters.guideIncluded.toString()}
@@ -135,14 +121,14 @@ onFilter(filters)
               handleChange('guideIncluded', e.target.value === "" ? null : e.target.value === "true")
             }
           >
-            <option value="">Any</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value="">{t('filter.any')}</option>
+            <option value="true">{t('yes')}</option>
+            <option value="false">{t('no')}</option>
           </select>
         </Col>
 
         <Col lg="3" md="4">
-          <label>Meals Included</label>
+          <label>{t('filter.mealsIncluded')}</label>
           <select
             className="form-select"
             value={filters.mealsIncluded === null ? '' : filters.mealsIncluded.toString()}
@@ -150,14 +136,16 @@ onFilter(filters)
               handleChange('mealsIncluded', e.target.value === "" ? null : e.target.value === "true")
             }
           >
-            <option value="">Any</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value="">{t('filter.any')}</option>
+            <option value="true">{t('yes')}</option>
+            <option value="false">{t('no')}</option>
           </select>
         </Col>
 
         <Col lg="12" className="mt-3">
-          <Button className="btn primary__btn" onClick={handleReset}>Clear Filters</Button>
+          <Button className="btn primary__btn" onClick={handleReset}>
+            {t('filter.clearFilters')}
+          </Button>
         </Col>
       </Row>
     </div>

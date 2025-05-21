@@ -5,9 +5,10 @@ import useFetch from './../../hooks/useFetchA'
 import {BASE_URL} from './../../utils/configB'
 
 
-
+import { useTranslation } from 'react-i18next'
 
 const FeaturedBoatList = () => {
+    const { t } = useTranslation();  // تفعيل الترجمة
   
   const {data: featuredBoats, loading ,error} = useFetch(`${BASE_URL}/boats/featured/getFeaturedBoats`) 
   console.log('Featured Boats from API:', featuredBoats);  
@@ -16,7 +17,7 @@ const FeaturedBoatList = () => {
    
    {
    
-   loading && <h4>Loading............</h4>
+   loading && <h4>{t('loading')}</h4>
 
   }
   {

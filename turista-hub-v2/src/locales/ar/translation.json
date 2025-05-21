@@ -1,5 +1,426 @@
 {
-    "welcome": "أهلاً وسهلاً",
-    "homeTitle": "شريكك الموثوق في السفر"
-  }
+     "Home": "الرئيسية",
+  "Tour": "جولة",
+  "House": "منازل",
+  "Car": "سيارات",
+  "Translator": "مترجم",
+  "Boat": "قارب",
+  "Login": "تسجيل الدخول",
+  "Register": "إنشاء حساب",
+  "Logout": "تسجيل الخروج", 
+
   
+  "know_before_you_go": "اعرف قبل أن تذهب",
+  "travelling_opens_the_door": "السفر يفتح الباب لصنع",
+  "memories": "الذكريات",
+  "trip_description": "رحلتك، أصبحت سهلة—المنازل، السيارات، والجولات في مكان واحد",
+  "what_we_serve": "ما نقدمه",
+  "best_service": "نقدم أفضل خدماتنا",
+  "explore": "استكشف",
+  "featured_tours": "جولاتنا المميزة",
+  "featured_boats": "قواربنا المميزة",
+  "experience": "تجربة",
+  "trusted_travel_partner": "شريك سفرك الموثوق",
+  "best_travel_experience": "نلتزم بتقديم أفضل تجربة سفر لك",
+  "customer_testimonials": "آراء العملاء",
+  "what_customers_say": "ماذا يقول عملاؤنا عنا",
+
+
+
+
+
+  "services": {
+    "accommodationBooking": {
+      "title": "حجز الإقامة",
+      "desc": "نقدم خيارات فنادق مريحة تناسب احتياجاتك."
+    },
+    "carRentalService": {
+      "title": "خدمة تأجير السيارات",
+      "desc": "خيارات تأجير سيارات موثوقة ومريحة لتسهيل رحلتك."
+    },
+    "tourGuideService": {
+      "title": "خدمة الجولات والمرشدين",
+      "desc": "تجارب سياحية لا تُنسى مع مرشدين محترفين."
+    }
+  },
+
+  
+   "Discover": "اكتشف",
+  "Quick links": "روابط سريعة",
+  "Contacts": "جهات الاتصال",
+  "Address": "العنوان",
+  "Email": "البريد الإلكتروني",
+  "Phone": "الهاتف",
+  "Home": "الرئيسية",
+  "Tour": "جولة",
+  "Houses": "منازل",
+  "Cars": "سيارات",
+  "Login": "تسجيل الدخول",
+  "Register": "إنشاء حساب",
+
+    "all_tours": "جميع الجولات",
+  "close_filter": "إغلاق الفلتر",
+  "loading": "جارٍ التحميل.....",
+  "error_loading": "حدث خطأ أثناء التحميل",
+
+
+   "rental_houses": "منازل للإيجار",
+  "pagination_page": "الصفحة",
+
+  "all_cars": "جميع السيارات",
+  "boat_rentals": "تأجير القوارب",
+  "all_translators": "جميع المترجمين",
+
+   "notRated": "لم يتم التقييم",
+  "type": "النوع",
+  "pricePerSession": "/ لكل جلسة",
+  "meals": "وجبات",
+  "music": "موسيقى",
+  "wifi": "واي فاي",
+  "ac": "تكييف",
+  "guide": "مرشد",
+  "outdoor": "في الهواء الطلق",
+  "swimming": "السباحة",
+  "description": "الوصف",
+  "reviews": "المراجعات",
+  "shareThoughts": "شارك رأيك",
+  "submit": "إرسال",
+
+  
+  "pricePerDay": " / باليوم",
+  "maxRentalPeriod": "أقصى مدة تأجير: {{days}} يومًا",
+  "model": "الموديل",
+  "year": "السنة",
+  "fuelType": "نوع الوقود",
+  "doors": "الأبواب",
+  "seats": "المقاعد",
+  "insurance": "التأمين",
+  "condition": "الحالة",
+  "driverOption": "خيار السائق",
+  "mileage": "المسافة المقطوعة",
+  "color": "اللون",
+  "transmission": "ناقل الحركة",
+  "deliveryService": "خدمة التوصيل",
+  "available": "متاحة",
+  "notAvailable": "غير متاحة",
+  "amenities": "وسائل الراحة",
+  "description": "الوصف",
+  "reviews": "المراجعات ({{count}} مراجعة)",
+  "shareThoughts": "شارك رأيك",
+  "submit": "إرسال",
+  "pleaseSignIn": "يرجى تسجيل الدخول",
+
+    "loading": "جاري التحميل..........",
+    "error": "حدث خطأ أثناء تحميل البيانات",
+    "reviews": "التقييمات",
+    "shareThoughts": "شاركنا رأيك",
+    "submit": "إرسال",
+    "description": "الوصف",
+    "notRated": "لم يتم التقييم",
+    "people": "أشخاص",
+    "bedrooms": "غرف نوم",
+    "bathrooms": "حمامات",
+    "perNight": "/ لكل ليلة",
+    "signInError": "الرجاء تسجيل الدخول",
+
+  "not_rated": "لم يتم التقييم",
+  "submit": "إرسال",
+  "description": "الوصف",
+  "per_person": "/ للشخص الواحد",
+  "people": "أشخاص",
+  "please_sign_in": "يرجى تسجيل الدخول",
+  "submit_success": "تم إرسال التقييم بنجاح",
+  "submit_error": "حدث خطأ أثناء إرسال التقييم",
+
+   "reviews": "المراجعات",
+    "notRated": "لم يتم التقييم",
+    "description": "الوصف",
+    "shareYourThoughts": "شارك رأيك",
+    "submit": "إرسال",
+    "sessionPrice": "{{price}} / للجلسة",
+    "languages": "اللغات",
+    "location": "الموقع",
+    "rating": "التقييم",
+
+      "featured": "مميز",
+  "notRated": "لم يتم التقييم",
+  "perHour": "/ لكل ساعة",
+  "viewDetails": "عرض التفاصيل",
+  "upToGuests": "حتى {{count}} أشخاص",
+
+   "featured": "مميز",
+  "notRated": "لم يتم التقييم",
+  "type": "النوع",
+  "fuel": "الوقود",
+  "transmission": "ناقل الحركة",
+  "perDay": "/ في اليوم",
+  "rentNow": "استأجر الآن",
+
+   "notRated": "لم يتم التقييم",
+  "bedrooms": "غرف نوم",
+  "perNight": "/في الليلة",
+  "viewDetails": "عرض التفاصيل",
+
+    "featured": "مميز",
+  "notRated": "لم يتم التقييم",
+  "perPerson": "/للفرد",
+  "bookNow": "احجز الآن", 
+
+
+   "featured": "مميز",
+  "notRated": "لم يتم التقييم",
+  "type": "النوع",
+  "languages": "اللغات",
+  "availableDays": "الأيام المتاحة",
+  "perDay": "/لكل يوم",
+  "bookNow": "احجز الآن",
+  "male": "ذكر",
+  "female": "أنثى",
+  "Monday": "الإثنين",
+  "Tuesday": "الثلاثاء",
+  "Wednesday": "الأربعاء",
+  "Thursday": "الخميس",
+  "Friday": "الجمعة",
+  "Saturday": "السبت",
+  "Sunday": "الأحد",
+  "arabic": "العربية",
+  "english": "الإنجليزية",
+  "turkish": "التركية",
+
+   "filter": {
+    "city": "المدينة",
+    "activityType": "نوع النشاط",
+    "adventureLevel": "مستوى المغامرة",
+    "availableDays": "الأيام المتاحة",
+    "guideIncluded": "يشمل دليل",
+    "mealsIncluded": "يشمل وجبات",
+    "any": "أي",
+    "clearFilters": "مسح الفلاتر"
+  },
+  "cities": {
+    "bodrum": "بودروم",
+    "pamukkale": "باموكالي",
+    "marmaris": "مرمريس",
+    "trabzon": "طرابزون",
+    "fethiye": "فيثييه",
+    "cappadocia": "كبادوكيا",
+    "bursa": "بورصة",
+    "sabanca": "سابانجا",
+    "izmir": "إزمير"
+  },
+  "activities": {
+    "beach": "شاطئ",
+    "relax": "استرخاء",
+    "adventure": "مغامرة",
+    "nature": "طبيعة",
+    "cultural": "ثقافي",
+    "wellness": "عافية",
+    "winter": "شتاء"
+  },
+  "days": {
+    "monday": "الاثنين",
+    "wednesday": "الأربعاء",
+    "friday": "الجمعة",
+    "saturday": "السبت"
+  },
+  "adventureLevels": {
+    "low": "منخفض",
+    "high": "مرتفع"
+  },
+  "yes": "نعم",
+  "no": "لا",
+
+
+    "location": "الموقع",
+  "maxPassengers": "أقصى عدد ركاب",
+  "pricePerHour": "السعر / الساعة",
+  "rating": "التقييم",
+  "features": "المميزات",
+  "clearFilters": "مسح الفلاتر",
+  "passenger": "راكب",
+  "passengers": "ركاب",
+  "under": "أقل من",
+  "starsAndUp": "نجوم فما فوق",
+  "stars": "نجوم",
+
+  
+
+
+"meals_provided": "توفير وجبات",
+  "music_system": "نظام موسيقى",
+  "wifi": "واي فاي",
+  "air_conditioned": "مكيف هواء",
+  "tour_guide": "مرشد سياحي",
+  "outdoor_seating": "جلسات خارجية",
+  "swimming_allowed": "السماح بالسباحة",
+
+
+   "location": "الموقع",
+  "type": "النوع",
+  "fuelType": "نوع الوقود",
+  "doors": "الأبواب",
+  "seats": "المقاعد",
+  "rentalPrice": "سعر الإيجار",
+  "transmission": "ناقل الحركة",
+  "condition": "الحالة",
+  "amenities": "وسائل الراحة",
+  "clearFilters": "مسح الفلاتر",
+  "Istanbul": "إسطنبول",
+  "Ankara": "أنقرة",
+  "Izmir": "إزمير",
+  "Antalya": "أنطاليا",
+  "Sedan": "سيدان",
+  "SUV": "دفع رباعي",
+  "Sports": "رياضي",
+  "Luxury": "فاخر",
+  "Electric": "كهربائي",
+  "Petrol": "بنزين",
+  "Diesel": "ديزل",
+  "Automatic": "أتوماتيكي",
+  "Manual": "يدوي",
+  "New": "جديد",
+  "Like New": "كالجديد",
+  "Used": "مستخدم",
+  "Air Conditioning": "تكييف هواء",
+  "Bluetooth": "بلوتوث",
+  "GPS": "نظام تحديد المواقع",
+  "Leather Seats": "مقاعد جلدية",
+  "Sunroof": "فتحة سقف",
+  "Door": "باب",
+  "Seat": "مقعد",
+  "Under": "أقل من",
+
+
+
+  "city": "City",
+  "type": "Type",
+  "price": "Price",
+  "bedrooms": "Bedrooms",
+  "bathrooms": "Bathrooms",
+  "maxGroupSize": "Max Group Size",
+  "amenities": "Amenities",
+  "clearFilters": "Clear Filters",
+  
+  "Istanbul": "Istanbul",
+  "Ankara": "Ankara",
+  "Sapanca": "Sapanca",
+
+  "Apartment": "Apartment",
+  "Villa": "Villa",
+  "Cottage": "Cottage",
+  "Mountain House": "Mountain House",
+  "Eco Cabin": "Eco Cabin",
+  "Traditional House": "Traditional House",
+
+  "Under 50": "Under 50",
+  "Under 100": "Under 100",
+  "Under 150": "Under 150",
+  "Under 200": "Under 200",
+
+  "Bedroom": "Bedroom",
+  "Bedrooms": "Bedrooms",
+
+  "Bathroom": "Bathroom",
+  "Bathrooms": "Bathrooms",
+
+  "wifi": "Wi-Fi",
+  "parking": "Parking",
+  "pool": "Pool",
+  "petsAllowed": "Pets Allowed",
+  "elevator": "Elevator",
+  "airConditioning": "Air Conditioning",
+  "heating": "Heating",
+  "kitchen": "Kitchen",
+  "laundry": "Laundry",
+
+
+
+   "City": "المدينة",
+  "Languages": "اللغات",
+  "Expertise Level": "مستوى الخبرة",
+  "Price Per Hour": "السعر بالساعة",
+  "Rating": "التقييم",
+  "Reviews Count": "عدد المراجعات",
+  "Availability": "الأيام المتاحة",
+  "Specializations": "التخصصات",
+  "Clear Filters": "مسح الفلاتر",
+  "Beginner": "مبتدئ",
+  "Intermediate": "متوسط",
+  "Advanced": "متقدم",
+  "Monday": "الإثنين",
+  "Wednesday": "الأربعاء",
+  "Friday": "الجمعة",
+  "Saturday": "السبت",
+  "Medical": "طبي",
+  "Legal": "قانوني",
+  "Technical": "تقني",
+  "Tourism": "سياحة",
+  "Price": "السعر",
+
+
+   "ThankYou": "شكراً لك",
+  "BookingConfirmed": "تم تأكيد حجزك",
+  "BackToHome": "العودة إلى الصفحة الرئيسية",
+
+
+
+  "information": "معلومات",
+  "fullNamePlaceholder": "الاسم الكامل",
+  "phonePlaceholder": "الهاتف",
+  "guestPlaceholder": "عدد الضيوف",
+  "serviceCharge": "رسوم الخدمة",
+  "total": "الإجمالي",
+  "bookNow": "احجز الآن",
+  "pleaseSignIn": "الرجاء تسجيل الدخول",
+
+  "pleaseSignIn": "يرجى تسجيل الدخول للحجز",
+  "perHour": "لكل ساعة",
+  "booking": "الحجز",
+  "fullNamePlaceholder": "الاسم الكامل",
+  "phonePlaceholder": "رقم الهاتف",
+  "guestPlaceholder": "عدد الضيوف",
+  "rentalHoursPlaceholder": "عدد ساعات الإيجار",
+  "price": "السعر",
+  "serviceFee": "رسوم الخدمة",
+  "total": "الإجمالي",
+  "bookNow": "احجز الآن",
+
+   "pricePerDay": "السعر لكل يوم",
+  "perDay": "/ في اليوم",
+  "rentalInformation": "معلومات الإيجار",
+  "fullNamePlaceholder": "الاسم الكامل",
+  "phonePlaceholder": "رقم الهاتف",
+  "pickupDate": "تاريخ الاستلام",
+  "endDate": "تاريخ الإرجاع",
+  "rentalDays": "عدد أيام الإيجار",
+  "price": "السعر",
+  "serviceFee": "رسوم الخدمة",
+  "total": "الإجمالي",
+  "bookCar": "احجز السيارة",
+  "pleaseSignIn": "يرجى تسجيل الدخول",
+  "day": "يوم",
+
+
+
+   "pleaseSignIn": "يرجى تسجيل الدخول",
+  "perNight": "لكل ليلة",
+  "information": "المعلومات",
+  "fullName": "الاسم الكامل",
+  "phone": "رقم الهاتف",
+  "guests": "عدد الضيوف",
+  "price": "السعر",
+  "serviceCharge": "رسوم الخدمة",
+  "total": "الإجمالي",
+  "book": "حجز",
+
+
+  "searchResult":"نتائج البحث",
+  "notFound":"لا توجد نتائج مطابقة",
+
+    "explore_search":"استكشف الرحلات حسب وجهتك المفضلة",
+
+          "Searchbycity":"ابحث حسب المدينة"
+
+
+
+}

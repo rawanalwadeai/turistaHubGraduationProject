@@ -9,15 +9,17 @@ import { BASE_URL } from '../utils/configB.js'
 import calculateAvgRating from '../utils/avgRating.js'
 import avatar from '../assets/images/avatar.jpg'
 import Booking from '../componenets/Booking/Booking.js'
+import { useTranslation } from 'react-i18next'
 
 const TranslatorDetails = () => {
   const { id } = useParams()
   const reviewMsgRef = useRef('')
   const [translatorRating, setTranslatorRating] = useState(null)
   const { user } = useContext(AuthContext)
+  const { t } = useTranslation()
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { data: translator, loading, error } = useFetchA(`${BASE_URL}/translator/${id}`)
-
   const { photo, name, desc, price, location, reviews = [], languages } = translator || {}
   const { totalRating, avgRating } = calculateAvgRating(reviews)
 
@@ -29,8 +31,11 @@ const TranslatorDetails = () => {
 
     try {
       if (!user) {
-        return toast.error('Please sign in')
+             return toast.error(t('signInError'));
+      
       }
+           if (isSubmitting) return;
+
 
       const reviewObj = {
         productType: 'Translator',
@@ -39,6 +44,9 @@ const TranslatorDetails = () => {
         reviewText,
         rating: translatorRating,
       }
+
+        setIsSubmitting(true); // قفل الإرسال مؤقتًا
+
 
       const res = await fetch(`${BASE_URL}/reviews/translator/${id}`, {
         method: 'post',
@@ -56,6 +64,9 @@ const TranslatorDetails = () => {
     } catch (err) {
       toast.error(err.message)
     }
+     finally {
+    setIsSubmitting(false); // نسمح بالإرسال مرة ثانية
+  }
   }
 
   useEffect(() => {
@@ -65,15 +76,13 @@ const TranslatorDetails = () => {
   return (
     <section>
       <Container>
-        {loading && <h4 className="text-center pt-5">Loading...</h4>}
+        {loading && <h4 className="text-center pt-5">{t('loading')}</h4>}
         {error && <h4 className="text-center pt-5">{error}</h4>}
 
         {!loading && !error && (
           <Row>
             <Col lg="8">
               <div className="tour__content">
-                {/* بدون صورة */}
-
                 <div className="tour__info">
                   <h2>{name}</h2>
 
@@ -81,7 +90,7 @@ const TranslatorDetails = () => {
                     <span className="tour__rating d-flex align-items-center gap-1">
                       <i className="fa-solid fa-star" style={{ color: 'var(--secondary-color)' }}></i>{' '}
                       {avgRating === 0 ? null : avgRating}
-                      {totalRating === 0 ? 'Not rated' : <span>({reviews.length})</span>}
+                      {totalRating === 0 ? t('notRated') : <span>({reviews.length})</span>}
                     </span>
 
                     <span>
@@ -91,39 +100,33 @@ const TranslatorDetails = () => {
 
                   <div className="tour__extra-details">
                     <span><i className="fa-solid fa-language"></i> {languages?.join(', ')}</span>
-                    <span><i className="fa-solid fa-turkish-lira-sign"></i> ${price} / session</span>
+                    <span><i className="fa-solid fa-turkish-lira-sign"></i> {t('sessionPrice', { price })}</span>
                   </div>
 
-                  <h5>Description</h5>
+                  <h5>{t('description')}</h5>
                   <p>{desc}</p>
                 </div>
 
-                {/* التقييمات */}
                 <div className="tour__reviews mt-4">
-                <h4>Reviews ( {reviews?.length}  reviews)</h4>
+                  <h4>{t('reviews', { count: reviews?.length })}</h4>
 
-
-
-<Form onSubmit={submitHandler}>
-  <div className="d-flex align-items-center  gap-3 mb-4 rating__group">
-
-
-
-  {[1, 2, 3, 4, 5].map((star) => (
-<span
-key={star}
-onClick={() => setTranslatorRating(star)}
-className={translatorRating >= star ? 'active' : ''}
->
-<i className="fa-solid fa-star"></i>
-</span>
-))}
+                  <Form onSubmit={submitHandler}>
+                    <div className="d-flex align-items-center gap-3 mb-4 rating__group">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <span
+                          key={star}
+                          onClick={() => setTranslatorRating(star)}
+                          className={translatorRating >= star ? 'active' : ''}
+                        >
+                          <i className="fa-solid fa-star"></i>
+                        </span>
+                      ))}
                     </div>
 
                     <div className="review__input">
-                      <input type="text" ref={reviewMsgRef} placeholder="Share your thoughts" required />
+                      <input type="text" ref={reviewMsgRef} placeholder={t('shareYourThoughts')} required />
                       <button className="btn primary__btn text-white" type="submit">
-                        Submit
+                        {t('submit')}
                       </button>
                     </div>
                   </Form>

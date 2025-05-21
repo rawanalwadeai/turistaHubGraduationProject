@@ -10,6 +10,7 @@ import TranslatorFilter from '../componenets/TranslatorFilter';
 
 import '../styles/tour.css';
 
+import { useTranslation } from 'react-i18next';
 const Translator = () => {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
@@ -19,6 +20,8 @@ const Translator = () => {
   const { data: translator, loading, error } = useFetchA(`${BASE_URL}/translator?page=${page}`);
   const { data: translatorCount } = useFetchA(`${BASE_URL}/translator/count/total`);
 
+
+  const {t} = useTranslation()
   useEffect(() => {
     const pages = Math.ceil(translatorCount / 8);
     setPageCount(pages);
@@ -57,7 +60,7 @@ const Translator = () => {
   }, [translator]);
   return (
     <>
-      <CommonSection title={"All translator"} />
+      <CommonSection title={t('all_translators')} />
       {/* <section>
         <Container>
           <Row>
@@ -71,7 +74,7 @@ const Translator = () => {
           <Row className="mb-3">
             <Col lg="12" className="text-end">
               <button className="btn primary__btn" onClick={() => setShowFilterPanel(!showFilterPanel)}>
-                {showFilterPanel ? 'Close Filter' : <i className="fa-solid fa-filter" style={{ color: 'white' }}></i>}
+                {showFilterPanel ? t('close_filter') : <i className="fa-solid fa-filter" style={{ color: 'white' }}></i>}
               </button>
             </Col>
           </Row>
@@ -84,7 +87,7 @@ const Translator = () => {
             </Row>
           )}
 
-          {loading && <h4 className="text-center pt-5">Loading...</h4>}
+          {loading && <h4 className="text-center pt-5">{t('loading')}</h4>}
           {error && <h4 className="text-center pt-5">{error}</h4>}
 
           {!loading && !error && (

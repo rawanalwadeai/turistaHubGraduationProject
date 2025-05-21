@@ -1,9 +1,12 @@
-import React, { useState , useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Select from 'react-select'
 import { Row, Col, Button } from 'reactstrap'
+import { useTranslation } from 'react-i18next'
 import '../styles/tour-filter.css'
 
 const CarFilter = ({ onFilter }) => {
+  const { t } = useTranslation()
+
   const [filters, setFilters] = useState({
     location: '',
     type: '',
@@ -16,8 +19,6 @@ const CarFilter = ({ onFilter }) => {
     amenities: [],
   })
 
-
-  
   const handleReset = () => {
     const resetFilters = {
       location: '',
@@ -29,161 +30,154 @@ const CarFilter = ({ onFilter }) => {
       transmission: '',
       condition: '',
       amenities: [],
-    };
-    setFilters(resetFilters);
-    onFilter(resetFilters);  // إرسال الفلاتر الفارغة للمكون الأب
-  };
-
+    }
+    setFilters(resetFilters)
+    onFilter(resetFilters)
+  }
 
   const handleChange = (field, value) => {
     setFilters({ ...filters, [field]: value })
   }
 
-  const handleApply = () => {
-    onFilter(filters)
-  }
-
   const locationOptions = [
-    { value: 'Istanbul', label: 'Istanbul' },
-    { value: 'Ankara', label: 'Ankara' },
-    { value: 'Izmir', label: 'Izmir' },
-    { value: 'Antalya', label: 'Antalya' },
+    { value: 'Istanbul', label: t('Istanbul') },
+    { value: 'Ankara', label: t('Ankara') },
+    { value: 'Izmir', label: t('Izmir') },
+    { value: 'Antalya', label: t('Antalya') },
   ]
 
   const typeOptions = [
-    { value: 'Sedan', label: 'Sedan' },
-    { value: 'SUV', label: 'SUV' },
-    { value: 'Sports', label: 'Sports' },
-    { value: 'Luxury', label: 'Luxury' },
-    { value: 'Electric', label: 'Electric' },
+    { value: 'Sedan', label: t('Sedan') },
+    { value: 'SUV', label: t('SUV') },
+    { value: 'Sports', label: t('Sports') },
+    { value: 'Luxury', label: t('Luxury') },
+    { value: 'Electric', label: t('Electric') },
   ]
 
   const fuelTypeOptions = [
-    { value: 'Petrol', label: 'Petrol' },
-    { value: 'Diesel', label: 'Diesel' },
-    { value: 'Electric', label: 'Electric' },
+    { value: 'Petrol', label: t('Petrol') },
+    { value: 'Diesel', label: t('Diesel') },
+    { value: 'Electric', label: t('Electric') },
   ]
 
   const doorsOptions = Array.from({ length: 5 }, (_, i) => i + 2).map(i => ({
-    value: i, label: `${i} Door${i > 1 ? 's' : ''}`
+    value: i,
+    label: `${i} ${t('Door')}${i > 1 ? 's' : ''}`,
   }))
 
   const seatsOptions = Array.from({ length: 6 }, (_, i) => i + 2).map(i => ({
-    value: i, label: `${i} Seat${i > 1 ? 's' : ''}`
+    value: i,
+    label: `${i} ${t('Seat')}${i > 1 ? 's' : ''}`,
   }))
 
   const rentalPriceOptions = [
-    { value: '25', label: 'Under 25' },
-    { value: '50', label: 'Under 50' },
-    { value: '100', label: 'Under 100' },
-    { value: '150', label: 'Under 150' },
+    { value: '25', label: `${t('Under')} 25` },
+    { value: '50', label: `${t('Under')} 50` },
+    { value: '100', label: `${t('Under')} 100` },
+    { value: '150', label: `${t('Under')} 150` },
   ]
 
   const transmissionOptions = [
-    { value: 'Automatic', label: 'Automatic' },
-    { value: 'Manual', label: 'Manual' },
+    { value: 'Automatic', label: t('Automatic') },
+    { value: 'Manual', label: t('Manual') },
   ]
 
   const conditionOptions = [
-    { value: 'New', label: 'New' },
-    { value: 'Like New', label: 'Like New' },
-    { value: 'Used', label: 'Used' },
+    { value: 'New', label: t('New') },
+    { value: 'Like New', label: t('Like New') },
+    { value: 'Used', label: t('Used') },
   ]
 
   const amenitiesOptions = [
-    { value: 'AC', label: 'Air Conditioning' },
-    { value: 'Bluetooth', label: 'Bluetooth' },
-    { value: 'GPS', label: 'GPS' },
-    { value: 'Leather Seats', label: 'Leather Seats' },
-    { value: 'Sunroof', label: 'Sunroof' },
+    { value: 'AC', label: t('Air Conditioning') },
+    { value: 'Bluetooth', label: t('Bluetooth') },
+    { value: 'GPS', label: t('GPS') },
+    { value: 'Leather Seats', label: t('Leather Seats') },
+    { value: 'Sunroof', label: t('Sunroof') },
   ]
 
+  useEffect(() => {
+    onFilter(filters)
+  }, [filters])
 
-    useEffect(() => {
-  onFilter(filters)
-    } , [filters])
-  
-  
+  return (
+    <div className="car-filter p-3 rounded shadow mb-4">
+      <Row>
+        <Col lg="3" md="4">
+          <label>{t('location')}</label>
+          <Select
+            options={locationOptions}
+            value={locationOptions.find(opt => opt.value === filters.location) || null}
+            onChange={selected => handleChange('location', selected?.value || '')}
+            isClearable
+          />
+        </Col>
 
-    return (
-      <div className="car-filter p-3 rounded shadow mb-4">
-        <Row>
-          <Col lg="3" md="4">
-            <label>Location</label>
-            <Select
-              options={locationOptions}
-              value={locationOptions.find(opt => opt.value === filters.location) || null}
-              onChange={(selected) => handleChange('location', selected?.value || '')}
-              isClearable
-            />
-          </Col>
-          <Col lg="3" md="4">
-            <label>Type</label>
-            <Select
-              options={typeOptions}
-              value={typeOptions.find(opt => opt.value === filters.type) || null}
-              onChange={(selected) => handleChange('type', selected?.value || '')}
-              isClearable
-            />
-          </Col>
-          <Col lg="3" md="4">
-            <label>Fuel Type</label>
-            <Select
-              options={fuelTypeOptions}
-              value={fuelTypeOptions.find(opt => opt.value === filters.fuelType) || null}
-              onChange={(selected) => handleChange('fuelType', selected?.value || '')}
-              isClearable
-            />
-          </Col>
-          <Col lg="3" md="4">
-            <label>Doors</label>
-            <Select
-              options={doorsOptions}
-              value={doorsOptions.find(opt => opt.value === filters.doors) || null}
-              onChange={(selected) => handleChange('doors', selected?.value || '')}
-              isClearable
-            />
-          </Col>
-          <Col lg="3" md="4">
-            <label>Seats</label>
-            <Select
-              options={seatsOptions}
-              value={seatsOptions.find(opt => opt.value === filters.seats) || null}
-              onChange={(selected) => handleChange('seats', selected?.value || '')}
-              isClearable
-            />
-          </Col>
-          <Col lg="3" md="4">
-            <label>Rental Price</label>
-            <Select
-              options={rentalPriceOptions}
-              value={rentalPriceOptions.find(opt => opt.value === filters.rentalPrice) || null}
-              onChange={(selected) => handleChange('rentalPrice', selected?.value || '')}
-              isClearable
-            />
-          </Col>
-          <Col lg="3" md="4">
-            <label>Transmission</label>
-            <Select
-              options={transmissionOptions}
-              value={transmissionOptions.find(opt => opt.value === filters.transmission) || null}
-              onChange={(selected) => handleChange('transmission', selected?.value || '')}
-              isClearable
-            />
-          </Col>
-          <Col lg="3" md="4">
-            <label>Condition</label>
-            <Select
-              options={conditionOptions}
-              value={conditionOptions.find(opt => opt.value === filters.condition) || null}
-              onChange={(selected) => handleChange('condition', selected?.value || '')}
-              isClearable
-            />
-          </Col>
-          <Col lg="3" md="4">
-            <label>Amenities</label>
-            <Select
-              options={amenitiesOptions}
+        <Col lg="3" md="4">
+          <label>{t('type')}</label>
+          <Select
+            options={typeOptions}
+            value={typeOptions.find(opt => opt.value === filters.type) || null}
+            onChange={selected => handleChange('type', selected?.value || '')}
+            isClearable
+          />
+        </Col>
+
+        <Col lg="3" md="4">
+          <label>{t('fuelType')}</label>
+          <Select
+            options={fuelTypeOptions}
+            value={fuelTypeOptions.find(opt => opt.value === filters.fuelType) || null}
+            onChange={selected => handleChange('fuelType', selected?.value || '')}
+            isClearable
+          />
+        </Col>
+
+        <Col lg="3" md="4">
+          <label>{t('doors')}</label>
+          <Select
+            options={doorsOptions}
+            value={doorsOptions.find(opt => opt.value === filters.doors) || null}
+            onChange={selected => handleChange('doors', selected?.value || '')}
+            isClearable
+          />
+        </Col>
+
+        <Col lg="3" md="4">
+          <label>{t('seats')}</label>
+          <Select
+            options={seatsOptions}
+            value={seatsOptions.find(opt => opt.value === filters.seats) || null}
+            onChange={selected => handleChange('seats', selected?.value || '')}
+            isClearable
+          />
+        </Col>
+
+        <Col lg="3" md="4">
+          <label>{t('rentalPrice')}</label>
+          <Select
+            options={rentalPriceOptions}
+            value={rentalPriceOptions.find(opt => opt.value === filters.rentalPrice) || null}
+            onChange={selected => handleChange('rentalPrice', selected?.value || '')}
+            isClearable
+          />
+        </Col>
+
+        <Col lg="3" md="4">
+          <label>{t('transmission')}</label>
+          <Select
+            options={transmissionOptions}
+            value={transmissionOptions.find(opt => opt.value === filters.transmission) || null}
+            onChange={selected => handleChange('transmission', selected?.value || '')}
+            isClearable
+          />
+        </Col>
+
+        <Col lg="3" md="4">
+          <label>{t('condition')}</label>
+          <Select
+            options={
+amenitiesOptions}
               value={amenitiesOptions.filter(opt => filters.amenities.includes(opt.value)) || null}
               isMulti
               onChange={(selected) => handleChange('amenities', selected.map(s => s.value))}

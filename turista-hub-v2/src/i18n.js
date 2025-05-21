@@ -4,16 +4,21 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 
 import translationTR from './locales/tr/translation.json'
 import translationAR from './locales/ar/translation.json'
+import translationEN from './locales/en/translation.json'
+
 
 i18n
-  .use(LanguageDetector)
+  // .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: translationTR },
-      ar: { translation: translationAR }
+      tr: { translation: translationTR },
+      ar: { translation: translationAR },
+      en: { translation: translationEN }
+
     },
-    fallbackLng: 'tr',
+    lng: 'en', 
+    fallbackLng: 'en',
     interpolation: {
       escapeValue: false
     }

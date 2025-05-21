@@ -1,0 +1,433 @@
+
+
+{
+ "Home": "Home",
+  "Tour": "Tour",
+  "House": "House",
+  "Car": "Car",
+  "Translator": "Translator",
+  "Boat": "Boat",
+  "Login": "Login",
+  "Register": "Register",
+  "Logout": "Logout",
+
+  "know_before_you_go": "know before you go",
+  "travelling_opens_the_door": "TRAVELLING OPENS THE DOOR TO CREATING",
+  "memories": "Memories",
+  "trip_description": "Your trip, made easy—homes, cars, and tours in one place",
+  "what_we_serve": "What we Serve",
+  "best_service": "We Offer Our Best Service",
+  "explore": "Explore",
+  "featured_tours": "Our featured tours",
+  "featured_boats": "Our featured boats",
+  "experience": "Experience",
+  "trusted_travel_partner": "Your Trusted Travel Partner",
+  "best_travel_experience": "We are committed to offering you the best travel experience",
+  "customer_testimonials": "Customer Testimonials",
+  "what_customers_say": "What Our Customers Say About Us",
+
+  
+
+"services": {
+    "accommodationBooking": {
+      "title": "Accommodation Booking",
+      "desc": "We offer comfortable hotel options tailored to your needs."
+    },
+    "carRentalService": {
+      "title": "Car Rental Service",
+      "desc": "Reliable and comfortable car rental options to make your trip easier."
+    },
+    "tourGuideService": {
+      "title": "Tour & Guide Service",
+      "desc": "Unforgettable tour and travel experiences with professional guides."
+    }
+  },
+  
+
+  
+  "Discover": "Discover",
+  "Quick links": "Quick links",
+  "Contacts": "Contacts",
+  "Address": "Address",
+  "Email": "Email",
+  "Phone": "Phone",
+  "Home": "Home",
+  "Tour": "Tour",
+  "Houses": "Houses",
+  "Cars": "Cars",
+  "Login": "Login",
+  "Register": "Register",
+
+
+    "all_tours": "All tours",
+  "close_filter": "Close Filter",
+  "loading": "Loading.....",
+  "error_loading": "Error loading",
+
+
+
+  "rental_houses": "Rental Houses",
+  "pagination_page": "Page",
+
+  "all_cars": "All Cars",
+  "boat_rentals": "Boat Rentals",
+  "all_translators": "All Translators",
+  
+  "notRated": "Not rated",
+  "type": "Type",
+  "pricePerSession": " / per session",
+  "meals": "Meals",
+  "music": "Music",
+  "wifi": "Wi-Fi",
+  "ac": "A/C",
+  "guide": "Guide",
+  "outdoor": "Outdoor",
+  "swimming": "Swimming",
+  "description": "Description",
+  "reviews": "Reviews",
+  "shareThoughts": "Share your thoughts",
+  "submit": "Submit",
+
+ 
+  "pricePerDay": " / per day",
+  "maxRentalPeriod": "Max rental period: {{days}} days",
+  "model": "Model",
+  "year": "Year",
+  "fuelType": "Fuel Type",
+  "doors": "Doors",
+  "seats": "Seats",
+  "insurance": "Insurance",
+  "condition": "Condition",
+  "driverOption": "Driver Option",
+  "mileage": "Mileage",
+  "color": "Color",
+  "transmission": "Transmission",
+  "deliveryService": "Delivery Service",
+  "available": "Available",
+  "notAvailable": "Not Available",
+  "amenities": "Amenities",
+  "description": "Description",
+  "reviews": "Reviews ({{count}} reviews)",
+  "shareThoughts": "Share your thoughts",
+  "submit": "Submit",
+  "pleaseSignIn": "Please sign in",
+
+
+
+
+    "error": "Error loading data",
+    "reviews": "Reviews",
+    "shareThoughts": "Share your thoughts",
+    "submit": "Submit",
+    "description": "Description",
+    "notRated": "Not rated",
+    "people": "people",
+    "bedrooms": "Bedrooms",
+    "bathrooms": "Bathrooms",
+    "perNight": "/ per night",
+    "signInError": "Please sign in",
+
+    
+  "not_rated": "Not rated",
+  "submit": "Submit",
+  "description": "Description",
+  "per_person": "/ per person",
+  "people": "people",
+  "please_sign_in": "Please sign in",
+  "submit_success": "Review submitted successfully",
+  "submit_error": "An error occurred while submitting the review",
+
+ "reviews": "Reviews ",
+    "notRated": "Not rated",
+    "description": "Description",
+    "shareYourThoughts": "Share your thoughts",
+    "submit": "Submit",
+    "sessionPrice": "{{price}} / session",
+    "languages": "Languages",
+    "location": "Location",
+    "rating": "Rating",
+
+
+      "featured": "Featured",
+  "notRated": "Not rated",
+  "perHour": "/hour",
+  "viewDetails": "View Details",
+  "upToGuests": "Up to {{count}} guests",
+
+   "featured": "Featured",
+  "notRated": "Not rated",
+  "type": "Type",
+  "fuel": "Fuel",
+  "transmission": "Transmission",
+  "perDay": "/ per day",
+  "rentNow": "Rent now",
+
+   "notRated": "Not rated",
+  "bedrooms": "Bedrooms",
+  "perNight": "/night",
+  "viewDetails": "View Details",
+
+
+   "featured": "Featured",
+  "notRated": "Not rated",
+  "perPerson": "/per person",
+  "bookNow": "Book now",
+
+   "featured": "Featured",
+  "notRated": "Not rated",
+  "type": "Type",
+  "languages": "Languages",
+  "availableDays": "Available Days",
+  "perDay": "/per day",
+  "bookNow": "Book now",
+  "male": "Male",
+  "female": "Female",
+  "Monday": "Monday",
+  "Tuesday": "Tuesday",
+  "Wednesday": "Wednesday",
+  "Thursday": "Thursday",
+  "Friday": "Friday",
+  "Saturday": "Saturday",
+  "Sunday": "Sunday",
+  "arabic": "Arabic",
+  "english": "English",
+  "turkish": "Turkish",
+
+
+  
+  "filter": {
+    "city": "City",
+    "activityType": "Activity Type",
+    "adventureLevel": "Adventure Level",
+    "availableDays": "Available Days",
+    "guideIncluded": "Guide Included",
+    "mealsIncluded": "Meals Included",
+    "any": "Any",
+    "clearFilters": "Clear Filters"
+  },
+  "cities": {
+    "bodrum": "Bodrum",
+    "pamukkale": "Pamukkale",
+    "marmaris": "Marmaris",
+    "trabzon": "Trabzon",
+    "fethiye": "Fethiye",
+    "cappadocia": "Cappadocia",
+    "bursa": "Bursa",
+    "sabanca": "Sabanca",
+    "izmir": "Izmir"
+  },
+  "activities": {
+    "beach": "Beach",
+    "relax": "Relax",
+    "adventure": "Adventure",
+    "nature": "Nature",
+    "cultural": "Cultural",
+    "wellness": "Wellness",
+    "winter": "Winter"
+  },
+  "days": {
+    "monday": "Monday",
+    "wednesday": "Wednesday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  },
+  "adventureLevels": {
+    "low": "Low",
+    "high": "High"
+  },
+  "yes": "Yes",
+  "no": "No",
+
+
+
+"location": "Location",
+  "maxPassengers": "Max Passengers",
+  "pricePerHour": "Price / Hour",
+  "rating": "Rating",
+  "features": "Features",
+  "clearFilters": "Clear Filters",
+  "passenger": "Passenger",
+  "passengers": "Passengers",
+  "under": "Under",
+  "starsAndUp": "stars & up",
+  "stars": "stars",
+
+
+"meals_provided": "Meals Provided",
+  "music_system": "Music System",
+  "wifi": "Wi-Fi",
+  "air_conditioned": "Air Conditioned",
+  "tour_guide": "Tour Guide",
+  "outdoor_seating": "Outdoor Seating",
+  "swimming_allowed": "Swimming Allowed",
+
+ "location": "Location",
+  "type": "Type",
+  "fuelType": "Fuel Type",
+  "doors": "Doors",
+  "seats": "Seats",
+  "rentalPrice": "Rental Price",
+  "transmission": "Transmission",
+  "condition": "Condition",
+  "amenities": "Amenities",
+  "clearFilters": "Clear Filters",
+  "Istanbul": "Istanbul",
+  "Ankara": "Ankara",
+  "Izmir": "Izmir",
+  "Antalya": "Antalya",
+  "Sedan": "Sedan",
+  "SUV": "SUV",
+  "Sports": "Sports",
+  "Luxury": "Luxury",
+  "Electric": "Electric",
+  "Petrol": "Petrol",
+  "Diesel": "Diesel",
+  "Automatic": "Automatic",
+  "Manual": "Manual",
+  "New": "New",
+  "Like New": "Like New",
+  "Used": "Used",
+  "Air Conditioning": "Air Conditioning",
+  "Bluetooth": "Bluetooth",
+  "GPS": "GPS",
+  "Leather Seats": "Leather Seats",
+  "Sunroof": "Sunroof",
+  "Door": "Door",
+  "Seat": "Seat",
+  "Under": "Under",
+
+  "city": "City",
+  "type": "Type",
+  "price": "Price",
+  "bedrooms": "Bedrooms",
+  "bathrooms": "Bathrooms",
+  "maxGroupSize": "Max Group Size",
+  "amenities": "Amenities",
+  "clearFilters": "Clear Filters",
+  
+  "Istanbul": "Istanbul",
+  "Ankara": "Ankara",
+  "Sapanca": "Sapanca",
+
+  "Apartment": "Apartment",
+  "Villa": "Villa",
+  "Cottage": "Cottage",
+  "Mountain House": "Mountain House",
+  "Eco Cabin": "Eco Cabin",
+  "Traditional House": "Traditional House",
+
+  "Under 50": "Under 50",
+  "Under 100": "Under 100",
+  "Under 150": "Under 150",
+  "Under 200": "Under 200",
+
+  "Bedroom": "Bedroom",
+  "Bedrooms": "Bedrooms",
+
+  "Bathroom": "Bathroom",
+  "Bathrooms": "Bathrooms",
+
+  "wifi": "Wi-Fi",
+  "parking": "Parking",
+  "pool": "Pool",
+  "petsAllowed": "Pets Allowed",
+  "elevator": "Elevator",
+  "airConditioning": "Air Conditioning",
+  "heating": "Heating",
+  "kitchen": "Kitchen",
+  "laundry": "Laundry",
+
+
+
+   "City": "City",
+  "Languages": "Languages",
+  "Expertise Level": "Expertise Level",
+  "Price Per Hour": "Price Per Hour",
+  "Rating": "Rating",
+  "Reviews Count": "Reviews Count",
+  "Availability": "Availability",
+  "Specializations": "Specializations",
+  "Clear Filters": "Clear Filters",
+  "Beginner": "Beginner",
+  "Intermediate": "Intermediate",
+  "Advanced": "Advanced",
+  "Monday": "Monday",
+  "Wednesday": "Wednesday",
+  "Friday": "Friday",
+  "Saturday": "Saturday",
+  "Medical": "Medical",
+  "Legal": "Legal",
+  "Technical": "Technical",
+  "Tourism": "Tourism",
+  "Price": "Price",
+
+   "ThankYou": "Thank You",
+  "BookingConfirmed": "Your booking is confirmed",
+  "BackToHome": "Back to Home",
+
+
+
+  "information": "Information",
+  "fullNamePlaceholder": "Full Name",
+  "phonePlaceholder": "Phone",
+  "guestPlaceholder": "Guest",
+  "serviceCharge": "Service charge",
+  "total": "Total",
+  "bookNow": "Book Now",
+  "pleaseSignIn": "Please sign in",
+
+
+   "pleaseSignIn": "Please sign in to book",
+  "perHour": "per hour",
+  "booking": "Booking",
+  "fullNamePlaceholder": "Full Name",
+  "phonePlaceholder": "Phone",
+  "guestPlaceholder": "Number of Guests",
+  "rentalHoursPlaceholder": "Number of Rental hours",
+  "price": "Price",
+  "serviceFee": "Service Fee",
+  "total": "Total",
+  "bookNow": "Book Now",
+
+
+
+   "pricePerDay": "Price per Day",
+  "perDay": "/ per day",
+  "rentalInformation": "Rental Information",
+  "fullNamePlaceholder": "Full Name",
+  "phonePlaceholder": "Phone Number",
+  "pickupDate": "Pickup Date",
+  "endDate": "End Date",
+  "rentalDays": "Rental Days",
+  "price": "Price",
+  "serviceFee": "Service Fee",
+  "total": "Total",
+  "bookCar": "Book Car",
+  "pleaseSignIn": "Please sign in",
+  "day": "day(s)",
+
+
+  "pleaseSignIn": "Please sign in",
+  "perNight": "per night",
+  "information": "Information",
+  "fullName": "Full Name",
+  "phone": "Phone",
+  "guests": "Guests",
+  "price": "Price",
+  "serviceCharge": "Service charge",
+  "total": "Total",
+  "book": "Book",
+
+
+  "searchResult":"Search Result",
+  "notFound":"Not Found",
+
+
+      "explore_search":"Explore tours based on your favorite destination",
+
+      "Searchbycity":"Search by city"
+
+
+}
+
+

@@ -13,6 +13,7 @@ import { BASE_URL } from '../utils/configB.js'
 
 import CarFilter from '../componenets/CarFilter.js'
 
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -22,7 +23,7 @@ const Cars = () => {
   const [pageCount, setPageCount] = useState(0)
   const [page, setPage] = useState(0)
 
-
+const {t} = useTranslation()
 
   //F
 const {data:cars , loading , error} = useFetchA(`${BASE_URL}/cars?page=${page}`)
@@ -81,7 +82,7 @@ useEffect(() => {
 
   return (
     <>
-      <CommonSection title={"All Cars"} />
+      <CommonSection title={t('all_cars')} />
 
       {/* <section>
         <Container>
@@ -101,7 +102,7 @@ useEffect(() => {
               <button className='btn primary__btn'
                 onClick={() => setShowFilterPanelll(!showFilterPanelll)}
               >
-                {showFilterPanelll ? 'Close Filter' : <i className="fa-solid fa-filter" style={{'color': 'white'}}></i>}
+                {showFilterPanelll ? t('close_filter') : <i className="fa-solid fa-filter" style={{'color': 'white'}}></i>}
               </button>
             </Col>
           </Row>
@@ -114,7 +115,7 @@ useEffect(() => {
             </Row>
           )}
 
-        {loading && <h4 className='text-center pt-5'>Loading.....</h4>}
+        {loading && <h4 className='text-center pt-5'>{t('loading')}</h4>}
 {error && <h4 className='text-center pt-5'>{error}</h4>}
 
 

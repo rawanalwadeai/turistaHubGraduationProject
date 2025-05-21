@@ -4,10 +4,11 @@ import tourData from '../../assets/data/tours'
 import { Col } from 'reactstrap'
 import useFetch from './../../hooks/useFetchA'
 import {BASE_URL} from './../../utils/configB'
+import { useTranslation } from 'react-i18next'
 
 const FeaturedTourList = () => {
 
-
+const {t} = useTranslation()
 
   //C 
   const {data: featuredTours , loading ,error} = useFetch(`${BASE_URL}/tours/search/getFeaturedTour`) 
@@ -18,7 +19,7 @@ const FeaturedTourList = () => {
    <> 
    {
    
-    loading && <h4>Loading............</h4>
+    loading && <h4>{t('loading')}</h4>
 
    }
    {
