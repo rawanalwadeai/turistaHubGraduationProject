@@ -425,7 +425,22 @@
 
       "explore_search":"Explore tours based on your favorite destination",
 
-      "Searchbycity":"Search by city"
+      "Searchbycity":"Search by city",
+
+
+
+      "register": "Register",
+  "provider_register": "Register as Provider",
+  "username": "Username",
+  "email": "Email",
+  "password": "Password",
+  "company_name": "Company / Service Name",
+  "phone": "Phone Number",
+  "create_provider_account": "Create Provider Account",
+  "regular_user": "Are you a regular user?",
+  "register_here": "Register here",
+  "already_have_account": "Already have an account?",
+  "login": "Login"
 
 
 }

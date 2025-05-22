@@ -33,6 +33,7 @@ const hash =bcrypt.hashSync(req.body.password , salt)
             username: req.body.username,
             email:req.body.email,
             password:hash,
+            role:req.body.role  ,
             photo:req.body.photo
         })
 
@@ -43,6 +44,7 @@ res.status(200).json({
     message: 'Successfuly created',
     
 })
+
 
 }
 
@@ -98,11 +100,11 @@ const token =jwt.sign({id:user._id , role:user.role} , process.env.JWT_SECRET_KE
 
 res.cookie('accessToken' , token , {
     httpOnly : true,
-expirse:token.expiresIn})
+expireس:token.expiresIn})
 .status(200).json({
    token,
-   data: { ...rest }, 
-role, })
+   data: { ...rest , role} 
+ })
     }
 
     catch (err) {

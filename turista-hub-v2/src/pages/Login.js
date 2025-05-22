@@ -19,7 +19,8 @@ const Login = () => {
 
   const [credentials , setCredentials] = useState({
   email:undefined,
-  password:undefined
+  password:undefined,
+  role:'user'
 
   })
 

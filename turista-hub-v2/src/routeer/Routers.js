@@ -17,7 +17,9 @@ import Cars from '../pages/Cars';
 import Translator from '../pages/Translator';
 import Boat from '../pages/Boat'
 import BoatDetails from '../pages/BoatDetails';
-
+import RegisterProvider from '../pages/RegisterProvider';
+import LoginProvider from '../pages/LoginProvider';
+import ProviderDashboard from '../pages/dashboard/ProviderDashboard';
 
 
 
@@ -42,11 +44,16 @@ const Routers = () => {
 
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
+      <Route path='/providerRegister' element={<RegisterProvider />} />
+      <Route path='/loginProvider' element={<LoginProvider />} />
+
+
       <Route path='/thank-you' element={<ThankYou />}></Route>
       <Route path='/tour/search' element={<SearchResultList />} />
 
-      <Route path="*" element={<h2 className='center-text'>404 - Page Not Found</h2>} />
+      <Route path="*" element={<h2 style={{ textAlign: 'center' }}>404 - Page Not Found</h2>} />
 
+      <Route path='/provider-dashboard' element={<ProviderDashboard />} />
 
 
     </Routes>

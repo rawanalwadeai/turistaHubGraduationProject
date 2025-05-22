@@ -419,7 +419,21 @@
 
     "explore_search":"استكشف الرحلات حسب وجهتك المفضلة",
 
-          "Searchbycity":"ابحث حسب المدينة"
+          "Searchbycity":"ابحث حسب المدينة",
+
+
+           "register": "تسجيل",
+  "provider_register": "تسجيل مزود خدمة",
+  "username": "اسم المستخدم",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "company_name": "اسم الشركة / الخدمة",
+  "phone": "رقم الهاتف",
+  "create_provider_account": "إنشاء حساب مزود خدمة",
+  "regular_user": "هل أنت مستخدم عادي؟",
+  "register_here": "سجل هنا",
+  "already_have_account": "لديك حساب بالفعل؟",
+  "login": "تسجيل الدخول"
 
 
 

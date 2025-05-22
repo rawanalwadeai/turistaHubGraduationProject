@@ -428,7 +428,22 @@
 
   "explore_search":"Favori destinasyonuna göre turları keşfet",
 
-        "Searchbycity":"Şehre göre ara"
+        "Searchbycity":"Şehre göre ara",
+
+
+
+         "register": "Kayıt Ol",
+  "provider_register": "Hizmet Sağlayıcı Kaydı",
+  "username": "Kullanıcı Adı",
+  "email": "E-posta",
+  "password": "Şifre",
+  "company_name": "Şirket / Hizmet Adı",
+  "phone": "Telefon Numarası",
+  "create_provider_account": "Hizmet Sağlayıcı Hesabı Oluştur",
+  "regular_user": "Normal bir kullanıcı mısınız?",
+  "register_here": "Buradan kayıt olun",
+  "already_have_account": "Zaten bir hesabınız var mı?",
+  "login": "Giriş Yap"
 
 
   }
