@@ -12,7 +12,6 @@ const {t} = useTranslation()
 
   //C 
   const {data: featuredTours , loading ,error} = useFetch(`${BASE_URL}/tours/search/getFeaturedTour`) 
-  console.log (featuredTours)
   
 
   return (

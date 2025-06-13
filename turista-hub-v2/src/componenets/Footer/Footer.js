@@ -23,11 +23,19 @@ const quick__links = [
   },
   {
     path: '/houses',
-    display:'Houses'
+    display:'House'
   },
   {
     path: '/cars',
-    display:'Cars'
+    display:'Car'
+  },
+  {
+    path: '/boat',
+    display:'Boat'
+  },
+  {
+    path: '/translator',
+    display:'Translator'
   }
 
 
@@ -35,10 +43,6 @@ const quick__links = [
 
 
 const quick__links2 = [
-  // {
-  // path:"/gallery",
-  // display:"Gallery",
-  // },
 
   {
     path: "/login",
@@ -67,7 +71,6 @@ const year = new Date().getFullYear();
         <Col lg='3'>
           <div className='logo'>
             <img src={logo} alt='' />
-            {/* <p>loere jfhnjnfeu hefihh ihfw uwebhfib  rawna bwiu</p> */}
             <div className='social__links d-flex align-items-center gap-4' >
 
               <span>
@@ -108,7 +111,7 @@ const year = new Date().getFullYear();
           <ListGroup className='footer__quick-links'>
             {
               quick__links.map((item, index) => (
-                <ListGroupItem key={index} className='ps-0 border-0'>
+                <ListGroupItem key={item.path} className='ps-0 border-0'>
                   <Link to={item.path}>{t(item.display)}</Link>
                 </ListGroupItem>
               ))
@@ -123,7 +126,7 @@ const year = new Date().getFullYear();
           <ListGroup className='footer__quick-links'>
             {
               quick__links2.map((item, index) => (
-                <ListGroupItem key={index} className='ps-0 border-0'>
+                <ListGroupItem key={item.path} className='ps-0 border-0'>
                   <Link to={item.path}>{t(item.display)}</Link>
                 </ListGroupItem>
               ))
@@ -181,8 +184,8 @@ const year = new Date().getFullYear();
         <Col lg='12' className='text-center pt-5'>
         <p className='copyright'>
 
-{/* Copyright {year} , */}
-Designed and Developed by Rawan Alwadeai
+Copyright {year} ,
+ Developed by Rawan Alwadeai
           </p>
           </Col>
       </Row>

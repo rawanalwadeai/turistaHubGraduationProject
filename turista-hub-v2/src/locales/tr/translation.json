@@ -143,7 +143,7 @@
     "description": "Açıklama",
     "shareYourThoughts": "Düşüncelerinizi paylaşın",
     "submit": "Gönder",
-    "sessionPrice": "{{price}} / oturum",
+    "sessionPrice": " / oturum",
     "languages": "Diller",
     "location": "Konum",
     "rating": "Değerlendirme",
@@ -296,6 +296,9 @@
   "Seat": "Koltuk",
   "Under": "Altında",
 
+  "bookingDate":"Rezervasyon Tarihie",
+"startTime":"Başlangıç Saati",
+
 
   "city": "Şehir",
   "type": "Tür",
@@ -443,7 +446,83 @@
   "regular_user": "Normal bir kullanıcı mısınız?",
   "register_here": "Buradan kayıt olun",
   "already_have_account": "Zaten bir hesabınız var mı?",
-  "login": "Giriş Yap"
+  "login": "Giriş Yap",
+
+    "request":"Randevu Talep Et",
+    "res_translator":"Randevu detaylarını onaylamak için kısa süre içinde sizinle iletişime geçeceğiz",
+"requestt":"Randevu",
+     "activity_type": "Etkinlik Türü",
+  "internet": "İnternet",
+  "available": "Mevcut",
+  "not_available": "Mevcut Değil",
+  "family_friendly": "Aile Dostu",
+  "duration": "Süre",
+  "available_days": "Uygun Günler",
+  "adventure_level": "Macera Seviyesi",
+  "guide_included": "Rehber Dahil",
+  "meals_included": "Yemekler Dahil",
+  "yes": "Evet",
+  "no": "Hayır",
+  "certified": "Sertifikalı",
+  "notCertified": "Sertifikasız",
+  "Beginner": "Başlangıç",
+  "Intermediate": "Orta Seviye",
+  "Advanced": "İleri Seviye",
+  "sessionPrice": "seans başı",
+  
+
+ "amenities": "Olanaklar",
+  "wifi": "Wi-Fi",
+  "airConditioning": "Klima",
+  "heating": "Isıtma",
+  "tv": "Televizyon",
+  "kitchen": "Mutfak",
+  "coffeeMaker": "Kahve Makinesi",
+  "dishwasher": "Bulaşık Makinesi",
+  "microwave": "Mikrodalga",
+  "pool": "Yüzme Havuzu",
+  "hotTub": "Jakuzi",
+  "petsAllowed": "Evcil Hayvanlara İzin Verilir",
+  "smokingAllowed": "Sigara İçilmesine İzin Verilir",
+  "elevator": "Asansör",
+  "restaurant": "Restoran Mevcut",
+  "breakfastIncluded": "Kahvaltı Dahil",
+  "businessCenter": "İş Merkezi",
+  "wheelchairAccessible": "Tekerlekli Sandalye Erişimi",
+  "parking": "Otopark",
+  "Reserved Parking": "Rezerve Otopark",
+  "Private Parking": "Özel Otopark",
+  "laundry": "Çamaşırhane",
+  "In-unit Laundry": "Daire İçi Çamaşırhane",
+  "Nearby Laundromat": "Yakınlarda Çamaşırhane",
+  "startDate":"Giriş Tarihi",
+"endDate0":"Çıkış Tarihi",
+
+  "loading": "...Rezervasyonlar yükleniyor",
+  "noBookings": "Henüz rezervasyon yok.",
+  "bookingError": "Rezervasyon verisi hatalı.",
+  "fetchError": "Rezervasyonlar alınamadı",
+  "serviceType.tour": "Tur",
+  "serviceType.house": "Ev",
+  "serviceType.car": "Araba",
+  "serviceType.boat": "Tekne",
+  "status.unknown": "Durum bilinmiyor",
+  "status.canceled": "İptal edildi",
+  "nameUnavailable": "İsim mevcut değil",
+
+   "editPhoto": "Fotoğrafı düzenlemek için tıklayın",
+  "username": "Kullanıcı adı",
+  "email": "E-posta",
+  "phone": "Telefon",
+  "photoUrl": "Fotoğraf URL’si",
+  "saveChanges": "Değişiklikleri Kaydet",
+  "updateSuccess": "Profil başarıyla güncellendi",
+  "bookingsTitle": "Rezervasyonların",
+  "updateSuccess": "Profil başarıyla güncellendi"
 
 
+
+
+
+    
   }

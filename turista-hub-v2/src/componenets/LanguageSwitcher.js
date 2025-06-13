@@ -8,7 +8,6 @@ const LanguageSwitcher = () => {
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
     setShowOptions(false);
-      console.log("Changed to:", lng);
 
   };
   

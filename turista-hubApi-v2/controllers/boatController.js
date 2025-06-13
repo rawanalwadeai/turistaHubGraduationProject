@@ -15,6 +15,7 @@ export const addBoat = async (req, res) => {
     res.status(500).json({
       success: false,
       message: 'Failed to add, try again',
+      error:err.message
     })
   }
 }
@@ -77,28 +78,93 @@ export const getSingleBoat = async (req, res) => {
 }
 
 // Get all boats with pagination
+// export const getAllBoats = async (req, res) => {
+//   const page = parseInt(req.query.page) || 0
+
+//   try {
+//     const boats = await Boat.find({})
+//       .populate('reviews')
+//       .skip(page * 8)
+//       .limit(8)
+
+//     res.status(200).json({
+//       success: true,
+//       count: boats.length,
+//       message: 'Successfully fetched all boats',
+//       data: boats,
+//     })
+//   } catch (err) {
+//     res.status(500).json({
+//       success: false,
+//       message: 'Not found 2',
+//     })
+//   }
+// }
+
+
 export const getAllBoats = async (req, res) => {
-  const page = parseInt(req.query.page) || 0
+  const page = parseInt(req.query.page) || 0;
+  const limit = 8;
+  const skip = page * limit;
+
+  const {
+    location,
+    maxPassengers,
+    pricePerHour,
+    rating,
+    features // توقع: features=wifi,ac,...
+  } = req.query;
+
+  const filter = {};
+
+  if (location) {
+    filter.location = { $regex: location, $options: 'i' }; // بحث جزئي وحساس غير حساس لحالة الأحرف
+  }
+
+  if (maxPassengers) {
+    filter.max_passengers = { $gte: parseInt(maxPassengers) };
+  }
+
+  if (pricePerHour) {
+    filter.price_per_hour = { $lte: parseFloat(pricePerHour) };
+  }
+
+  if (rating) {
+    filter.rating = { $gte: parseFloat(rating) };
+  }
+
+  if (features) {
+    const featureList = features.split(',');
+    for (const feature of featureList) {
+      filter[`features.${feature}`] = true;
+    }
+  }
 
   try {
-    const boats = await Boat.find({})
+    const boats = await Boat
+      .find(filter)
       .populate('reviews')
-      .skip(page * 8)
-      .limit(8)
+      .skip(skip)
+      .limit(limit);
+
+    const totalCount = await Boat.countDocuments(filter);
 
     res.status(200).json({
       success: true,
       count: boats.length,
-      message: 'Successfully fetched all boats',
-      data: boats,
-    })
+      totalCount,
+      message: 'Successfully fetched filtered boats',
+      data: boats
+    });
   } catch (err) {
+    console.error(err);
     res.status(500).json({
       success: false,
-      message: 'Not found 2',
-    })
+      message: 'Server Error'
+    });
   }
-}
+};
+
 
 // Get boat count
 export const getBoatCount = async (req, res) => {

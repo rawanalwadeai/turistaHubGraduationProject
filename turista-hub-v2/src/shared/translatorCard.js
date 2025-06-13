@@ -14,12 +14,12 @@ const TranslatorCard = ({ translator }) => {
     name,
     city,
     gender,
-    price,
+    pricePerHour,
     featured,
     reviews,
     languages,
-    type,
-    availableDays,
+    specializations,
+    availability,
     photo
   } = translator;
 
@@ -33,7 +33,9 @@ const TranslatorCard = ({ translator }) => {
           <CardBody>
             <div className='card__top d-flex align-items-center justify-content-between'>
               <span className='tour__location d-flex align-items-center gap-1'>
-                <i className="fa-solid fa-user"></i> {t(gender)}
+               <span className='tour__location d-flex align-items-center gap-1'>
+              <i className="fa-solid fa-map-pin"></i> {city}
+            </span>
               </span>
 
               <span className='tour__rating d-flex align-items-center gap-1'>
@@ -46,24 +48,22 @@ const TranslatorCard = ({ translator }) => {
             {featured && <span className='featured-badge'>{t('featured')}</span>}
 
             <h5 className='tour__title'>
-              <Link to={`/translator/${_id}`}>{name}</Link>
+              {name}
             </h5>
 
-            <span className='tour__location d-flex align-items-center gap-1'>
-              <i className="fa-solid fa-map-pin"></i> {city}
-            </span>
+            
 
             <div className='translator__details mt-2'>
-              <p><strong>{t('type')}:</strong> {t(type)}</p>
+              <p><strong>{t('type')}:</strong> {specializations?.map(spe => t(spe)).join(', ')}</p>
               <p><strong>{t('languages')}:</strong> {languages?.map(lang => t(lang)).join(', ')}</p>
-              <p><strong>{t('availableDays')}:</strong> {availableDays?.map(day => t(day)).join(', ')}</p>
+              <p><strong>{t('availableDays')}:</strong> {availability?.map(day => t(day)).join(', ')}</p>
             </div>
 
             <div className='card__bottom d-flex align-items-center justify-content-between mt-3'>
-              <h5>${price} <span>{t('perDay')}</span></h5>
+              <h5>${pricePerHour} <span>/{t('perHour')}</span></h5>
 
               <button className='btn booking__btn'>
-                <Link to={`/translator/${_id}`}>{t('bookNow')}</Link>
+        {t('requestt')}
               </button>
             </div>
           </CardBody>

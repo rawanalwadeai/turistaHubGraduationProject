@@ -161,7 +161,6 @@ const handleClick = async e => {
 
 </Form>
 
-<p>Providing a service? <Link to='/providerRegister'>Sign up as a service provider</Link></p>
 <p>Already have an account ?  <Link to='/login'>Login</Link></p>
 
 </div>

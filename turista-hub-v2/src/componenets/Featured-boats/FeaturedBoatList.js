@@ -11,7 +11,6 @@ const FeaturedBoatList = () => {
     const { t } = useTranslation();  // تفعيل الترجمة
   
   const {data: featuredBoats, loading ,error} = useFetch(`${BASE_URL}/boats/featured/getFeaturedBoats`) 
-  console.log('Featured Boats from API:', featuredBoats);  
   return (
    <>
    

@@ -8,7 +8,7 @@ import useFetchA from '../hooks/useFetchA.js'
 import { BASE_URL } from '../utils/configB.js'
 import calculateAvgRating from '../utils/avgRating.js'
 import avatar from '../assets/images/avatar.jpg'
-import Booking from '../componenets/Booking/Booking.js'
+import BookingTranslator from '../componenets/Booking/BookingTrasnlator.js'
 import { useTranslation } from 'react-i18next'
 
 const TranslatorDetails = () => {
@@ -20,7 +20,18 @@ const TranslatorDetails = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { data: translator, loading, error } = useFetchA(`${BASE_URL}/translator/${id}`)
-  const { photo, name, desc, price, location, reviews = [], languages } = translator || {}
+  const {  photo, 
+    name, 
+    desc, 
+    pricePerHour, 
+    location, 
+    reviews = [], 
+    languages, 
+    city, 
+    expertiseLevel, 
+    specializations, 
+    isCertified, 
+    availability  } = translator || {}
   const { totalRating, avgRating } = calculateAvgRating(reviews)
 
   const options = { day: 'numeric', month: 'long', year: 'numeric' }
@@ -99,12 +110,17 @@ const TranslatorDetails = () => {
                   </div>
 
                   <div className="tour__extra-details">
+                    <span><i className="fa-solid fa-city"></i> {city}</span>
                     <span><i className="fa-solid fa-language"></i> {languages?.join(', ')}</span>
-                    <span><i className="fa-solid fa-turkish-lira-sign"></i> {t('sessionPrice', { price })}</span>
+                    <span><i className="fa-solid fa-briefcase"></i> {t(expertiseLevel)}</span>
+                    <span><i className="fa-solid fa-dollar-sign"></i> {pricePerHour} {t('sessionPrice')}</span>
+                    <span><i className="fa-solid fa-check-circle"></i> {isCertified ? t('certified') : t('notCertified')}</span>
+                    <span><i className="fa-solid fa-tools"></i> {specializations?.join(', ')}</span>
+                    <span><i className="fa-solid fa-calendar-days"></i> {availability?.join(', ')}</span>
                   </div>
 
-                  <h5>{t('description')}</h5>
-                  <p>{desc}</p>
+                  {/* <h5>{t('description')}</h5>
+                  <p>{desc}</p> */}
                 </div>
 
                 <div className="tour__reviews mt-4">
@@ -155,7 +171,7 @@ const TranslatorDetails = () => {
             </Col>
 
             <Col lg="4">
-              <Booking tour={translator} avgRating={avgRating} />
+              <BookingTranslator translator={translator} avgRating={avgRating} />
             </Col>
           </Row>
         )}

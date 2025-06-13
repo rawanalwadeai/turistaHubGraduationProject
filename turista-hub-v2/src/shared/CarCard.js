@@ -19,7 +19,8 @@ const CarCard = ({ car }) => {
     reviews,
     fuelType,
     transmission,
-    location
+    location,
+    title
   } = car;
 
   const { totalRating, avgRating } = calculateAvgRating(reviews);
@@ -46,7 +47,7 @@ const CarCard = ({ car }) => {
             </div>
 
             <h5 className='tour__title'>
-              <Link to={`/car/${_id}`}>{model} {name}</Link>
+             {model} {title}
             </h5>
 
             <div className='car__details mt-2'>
@@ -58,7 +59,7 @@ const CarCard = ({ car }) => {
             <div className='card__bottom d-flex align-items-center justify-content-between mt-3'>
               <h5>${price} <span>{t("perDay")}</span></h5>
               <button className='btn booking__btn'>
-                <Link to={`/car/${_id}`}>{t("rentNow")}</Link>
+              {t("rentNow")}
               </button>
             </div>
           </CardBody>

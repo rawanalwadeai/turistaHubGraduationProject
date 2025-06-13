@@ -98,7 +98,7 @@ const toggleMenu = ()=> menuRef.current.classList.toggle('show__menu')
             <div className='navigation' ref={menuRef} onClick={toggleMenu}>
               <ul className='menu d-flex align-items-center gap-5'>
                 {nav___links.map((item, index) => (
-                  <li className='nav__item' key={index}>
+                  <li className='nav__item' key={item.path}>
                     <NavLink
                       to={item.path}
                       className={navClass => (navClass.isActive ? 'active__link' : '')}
@@ -121,7 +121,14 @@ const toggleMenu = ()=> menuRef.current.classList.toggle('show__menu')
 
 {
   user? <>
-  <h5 className='mb-0'> {user.username} </h5>
+  <Link
+  to={`/profile/${user._id}`}
+  className='mb-0'
+  style={{ textDecoration: 'none', color: '#000', fontWeight: 'bold' }}
+>
+  {user.username}
+</Link>
+
   <Button className='btn btn-dark' onClick={logout}>{t('Logout')}</Button>
   </> : <>
   <button className='btn secondary__btn'>

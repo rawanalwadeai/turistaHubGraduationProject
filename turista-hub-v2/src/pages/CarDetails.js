@@ -47,7 +47,6 @@ const CarDetails = () => {
     // معالجة إرسال المراجعة بعد التحقق من صحة المستخدم
 
 
-    console.log('photo:', photo);
 
     try {
 
@@ -138,7 +137,7 @@ const CarDetails = () => {
 
                     <div className='tour__extra-details'>
                       {/* <span><i className="fa-solid fa-map-pin"></i> {city}</span> */}
-                      <span><i className="fa-solid fa-turkish-lira-sign"></i>${price} {t('pricePerDay')}</span>
+                      <span><i class="fa-solid fa-dollar-sign"></i>${price} {t('pricePerDay')}</span>
                       <span>{t('maxRentalPeriod', { days: maxRentalPeriod })}</span>
 
                       <span><i className="fa-solid fa-car-side"></i> {t('model')}: {car.model}</span>

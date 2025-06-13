@@ -17,7 +17,7 @@ res.status(200).json({
 })
 
     }catch(err){
-        res.status(500).json({success :false , message:'Failled to add, Try again'})
+        res.status(500).json({success :false , message:'Failled to add, Try again' , error:err.message })
 
     }
 }
@@ -90,40 +90,98 @@ res.status(200).json({
 //from here not relized ////////////////////////////////////////////
 
 // get All places
-export const getAllPlace = async(req,res) => {
+// export const getAllPlace = async(req,res) => {
 
 
-//for pagination trqeem 
-const page = parseInt(req.query.page) || 0
+// //for pagination trqeem 
+// const page = parseInt(req.query.page) || 0
 
 
-// console.log(page);
-    try{
+// // console.log(page);
+//     try{
 
 
-        const houses =  await Houses
-        .find({})
-        .populate('reviews')
-        .skip(page * 8 )
-        .limit(8)
+//         const houses =  await Houses
+//         .find({})
+//         .populate('reviews')
+//         .skip(page * 8 )
+//         .limit(8)
 
        
-        res.status(200).json({
-            success: true,
-            count:houses.length,
-            message: 'Successfuly fetcheing all',
-            data:houses
+//         res.status(200).json({
+//             success: true,
+//             count:houses.length,
+//             message: 'Successfuly fetcheing all',
+//             data:houses
             
-        })
+//         })
         
-    }
-    catch (err){
-        res.status(500).json({
-            success :false ,
-             message:'not found' })
+//     }
+//     catch (err){
+//         res.status(500).json({
+//             success :false ,
+//              message:'not found' })
 
-    }
-}
+//     }
+// }
+
+
+
+// get All places with filters and pagination
+export const getAllPlace = async (req, res) => {
+  const page = parseInt(req.query.page) || 0;
+  const limit = 8;
+  const skip = page * limit;
+
+  const {
+    city,
+    type,
+    price,
+    bedrooms,
+    bathrooms,
+    maxGroupSize,
+    amenities,
+  } = req.query;
+
+  const filter = {};
+
+  if (city) filter.city = city;
+  if (type) filter.type = type;
+  if (price) filter.price = { $lte: parseInt(price) };
+  if (bedrooms) filter.bedrooms = { $gte: parseInt(bedrooms) };
+  if (bathrooms) filter.bathrooms = { $gte: parseInt(bathrooms) };
+  if (maxGroupSize) filter.maxGroupSize = { $lte: parseInt(maxGroupSize) };
+
+  if (amenities) {
+    const parsedAmenities = amenities.split(',');
+    parsedAmenities.forEach((amenity) => {
+      filter[`amenities.${amenity}`] = true;
+    });
+  }
+
+  try {
+    const houses = await Houses
+    .find(filter)
+      .populate('reviews')
+      .skip(skip)
+      .limit(limit);
+
+    const totalCount = await Houses.countDocuments(filter);
+
+    res.status(200).json({
+      success: true,
+      count: houses.length,
+      totalCount,
+      message: 'Successfully fetched all places',
+      data: houses,
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: 'Not found',
+    });
+  }
+};
 
 
 

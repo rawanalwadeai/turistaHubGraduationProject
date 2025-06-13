@@ -30,27 +30,30 @@ const Translator = () => {
 
 
 
-  const handleFilter = (filters) => {
-    if (Object.values(filters).every(val => val === null || val === '' || val.length === 0)) {
-      setFilteredtranslator(translator);
-      return;
-    }
+  const handleFilter = async (filters) => {
+    const params = new URLSearchParams();
+
+
+  if (filters.city) params.append('city', filters.city);
+  if (filters.languages?.length) params.append('languages', filters.languages.join(','));
+  if (filters.expertiseLevel) params.append('expertiseLevel', filters.expertiseLevel);
+  if (filters.pricePerHour) params.append('pricePerHour', filters.pricePerHour);
+  if (filters.rating) params.append('rating', filters.rating);
+  if (filters.availability?.length) params.append('availability', filters.availability.join(','));
+  if (filters.specializations?.length) params.append('specializations', filters.specializations.join(','));
+  if (filters.isCertified !== undefined) params.append('isCertified', filters.isCertified);
+ 
+  params.append('page', page);
+
+  const res = await fetch(`${BASE_URL}/translator?${params.toString()}`)
+      const result = await res.json();
+
+      setFilteredtranslator(result.data);
+      setPageCount(Math.ceil(result.totalCount / 8));
+   };
   
-    const filtered = translator.filter(t => {
-      return (
-        (!filters.city || t.city === filters.city) &&
-        (!filters.languages.length || filters.languages.some(lang => t.languages.includes(lang))) &&
-        (!filters.expertiseLevel || t.expertiseLevel === filters.expertiseLevel) &&
-        (!filters.pricePerHour || t.pricePerHour <= filters.pricePerHour) &&
-        (!filters.rating || t.rating >= filters.rating) &&
-        (!filters.availability.length || filters.availability.some(day => t.availability.includes(day))) &&
-        (!filters.specializations.length || filters.specializations.some(spec => t.specializations.includes(spec))) &&
-        (filters.isCertified === undefined || t.isCertified === filters.isCertified)
-      );
-    });
-  
-    setFilteredtranslator(filtered);
-  };
+
+
   
   
   useEffect(() => {

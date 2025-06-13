@@ -1,4 +1,5 @@
 import BookingHouse from '../models/BookingHouse.js';
+import { sendEmail } from '../utils/email.js'
 
 // Create new house booking
 export const createHouseBooking = async (req, res) => {
@@ -8,6 +9,17 @@ export const createHouseBooking = async (req, res) => {
 
   try {
     const savedBooking = await newBooking.save();
+ 
+  
+        await sendEmail( 
+  savedBooking.userEmail,
+  'Booking Received – Awaiting Payment',
+  `Dear ${savedBooking.fullName},\n\nWe have received your booking for the house **${savedBooking.placeName}** .\n\nYour booking is currently pending until the payment is completed.\n\nThank you for choosing our service!`
+)
+
+    
+    
+    
     res.status(200).json({
       success: true,
       message: 'Your house has been booked successfully.',
@@ -59,3 +71,26 @@ export const getAllHouseBookings = async (req, res) => {
     });
   }
 };
+
+// GET /bookingHouse/unavailable/:houseId
+export const getUnavailableHouse = async (req, res) => {
+  const { houseId } = req.params;
+  try {
+    const bookings = await BookingHouse.find({ houseId });
+    
+    // تحويل كل حجز إلى قائمة تواريخ
+    let allUnavailableDates = [];
+    bookings.forEach(booking => {
+      const start = new Date(booking.bookAt);
+      const end = new Date(booking.bookEndAt);
+      for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+        allUnavailableDates.push(new Date(d));
+      }
+    });
+
+    res.json(allUnavailableDates);
+  } catch (err) {
+    res.status(500).json({ message: 'خطأ في جلب التواريخ المحجوزة' });
+  }
+};
+

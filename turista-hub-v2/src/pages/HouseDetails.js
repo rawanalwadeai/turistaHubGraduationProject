@@ -11,6 +11,7 @@ import useFetchA from '../hooks/useFetchA.js';
 import { BASE_URL } from '../utils/configB.js';
 import { AuthContext } from './../context/AuthContext';
 import { toast } from 'react-toastify';
+import Slider from 'react-slick'
 
 // استيراد useTranslation
 import { useTranslation } from 'react-i18next';
@@ -28,7 +29,7 @@ const HouseDetails = () => {
   // جلب بيانات المنزل
   const { data: house, loading, error } = useFetchA(`${BASE_URL}/houses/${id}`);
 
-  const { photo, title, desc, price, address, reviews, city, maxGroupSize, bedrooms, bathrooms, area } = house || {};
+  const { photo,images, title, desc, price, address, reviews, city,amenities, maxGroupSize, bedrooms, bathrooms, area } = house || {};
   const { totalRating, avgRating } = calculateAvgRating(reviews);
 
   const options = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -90,7 +91,40 @@ const HouseDetails = () => {
           <Row>
             <Col lg="8">
               <div className="tour__content">
-                <img src={photo} alt={title} />
+                {/* <img src={photo} alt={title} /> */}
+{house?.images && house.images.length > 0 && (
+  house.images.length === 1 ? (
+    <div className="mb-4">
+      <img
+        src={house.images[0]}
+        alt={title}
+        className="img-fluid rounded"
+        style={{ width: '100%', height: '100%', objectFit: 'cover', border: 'none' }}
+      />
+    </div>
+  ) : (
+    <Slider
+      dots={true}
+      infinite={true}
+      autoplay={true}
+      speed={200}
+      slidesToShow={1}
+      slidesToScroll={1}
+      className="mb-4"
+    >
+      {house.images.map((img, i) => (
+        <div key={i}>
+          <img
+            src={img}
+            alt={title}
+            className="img-fluid rounded"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', border: 'none' }}
+          />
+        </div>
+      ))}
+    </Slider>
+  )
+)}
 
                 <div className="tour__info">
                   <h2>{title}</h2>
@@ -112,21 +146,59 @@ const HouseDetails = () => {
                       <i className="fa-solid fa-map-pin"></i> {city}
                     </span>
                     <span>
-                      <i className="fa-solid fa-turkish-lira-sign"></i> ${price} {t('perNight')}
+                     <i class="fa-solid fa-dollar-sign"></i> ${price} {t('perNight')}
                     </span>
                     <span>
                       <i className="fa-solid fa-user-group"></i> {maxGroupSize} {t('people')}
                     </span>
                     <span>
-                      <i className="fa-solid fa-bed"></i> {bedrooms} {t('bedrooms')}
+                      <i className="fa-solid fa-bed"></i> {bedrooms} {t('Bedroom')}
                     </span>
                     <span>
-                      <i className="fa-solid fa-bath"></i> {bathrooms} {t('bathrooms')}
+                      <i className="fa-solid fa-bath"></i> {bathrooms} {t('Bathroom')}
                     </span>
                     <span>
                       <i className="fa-solid fa-ruler-combined"></i> {area}
                     </span>
+
+
                   </div>
+
+           {amenities && (
+  <div className="house__amenities mt-4">
+    <h5>{t('amenities')}</h5>
+    <ul className="list-unstyled d-flex flex-wrap gap-3">
+
+      {/* Boolean amenities */}
+      {amenities.wifi && <li><i className="fa-solid fa-wifi"></i> {t('wifi')}</li>}
+      {amenities.airConditioning && <li><i className="fa-solid fa-wind"></i> {t('airConditioning')}</li>}
+      {amenities.heating && <li><i className="fa-solid fa-temperature-high"></i> {t('heating')}</li>}
+      {amenities.tv && <li><i className="fa-solid fa-tv"></i> {t('tv')}</li>}
+      {amenities.kitchen && <li><i className="fa-solid fa-kitchen-set"></i> {t('kitchen')}</li>}
+      {amenities.coffeeMaker && <li><i className="fa-solid fa-mug-saucer"></i> {t('coffeeMaker')}</li>}
+      {amenities.dishwasher && <li><i className="fa-solid fa-dishwasher"></i> {t('dishwasher')}</li>}
+      {amenities.microwave && <li><i className="fa-solid fa-microchip"></i> {t('microwave')}</li>}
+      {amenities.pool && <li><i className="fa-solid fa-person-swimming"></i> {t('pool')}</li>}
+      {amenities.hotTub && <li><i className="fa-solid fa-hot-tub-person"></i> {t('hotTub')}</li>}
+      {amenities.petsAllowed && <li><i className="fa-solid fa-dog"></i> {t('petsAllowed')}</li>}
+      {amenities.smokingAllowed && <li><i className="fa-solid fa-smoking"></i> {t('smokingAllowed')}</li>}
+      {amenities.elevator && <li><i className="fa-solid fa-elevator"></i> {t('elevator')}</li>}
+      {amenities.restaurantAvailable && <li><i className="fa-solid fa-utensils"></i> {t('restaurant')}</li>}
+      {amenities.breakfastIncluded && <li><i className="fa-solid fa-egg"></i> {t('breakfastIncluded')}</li>}
+      {amenities.businessCenter && <li><i className="fa-solid fa-briefcase"></i> {t('businessCenter')}</li>}
+      {amenities.wheelchairAccessible && <li><i className="fa-solid fa-wheelchair"></i> {t('wheelchairAccessible')}</li>}
+
+      {/* String-based amenities */}
+      {amenities.parking && (
+        <li><i className="fa-solid fa-square-parking"></i> {t('parking')}: {t(amenities.parking)}</li>
+      )}
+      {amenities.laundry && (
+        <li><i className="fa-solid fa-shirt"></i> {t('laundry')}: {t(amenities.laundry)}</li>
+      )}
+    </ul>
+  </div>
+)}
+
 
                   <h5>{t('description')}</h5>
                   <p>{desc}</p>

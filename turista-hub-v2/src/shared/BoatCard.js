@@ -50,7 +50,7 @@ const BoatCard = ({ boats }) => {
 
             {/* اسم القارب */}
             <h5 className="tour__title">
-              <Link to={`/boats/${_id}`}>{boat_name}</Link>
+              {boat_name}
             </h5>
 
             {/* عدد الركاب */}
@@ -62,10 +62,10 @@ const BoatCard = ({ boats }) => {
 
             {/* السعر وزر التفاصيل */}
             <div className="card__bottom d-flex align-items-center justify-content-between mt-3">
-              <h5>${price_per_hour} <span>{t("perHour")}</span></h5>
-              <Link to={`/boats/${_id}`} className="btn booking__btn">
+              <h5>${price_per_hour} <span>/{t("perHour")}</span></h5>
+             <button  className="btn booking__btn">
                 {t("viewDetails")}
-              </Link>
+              </button>
             </div>
           </CardBody>
         </Card>

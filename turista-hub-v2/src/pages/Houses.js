@@ -29,60 +29,85 @@ const Houses = () => {
   const [showFilterPanell, setShowFilterPanell] = useState(false);
   const [filteredHouses, setFilteredHouses] = useState(houses);
 
+
+
+
   useEffect(() => {
-    const pages = Math.ceil(houseCount / 4);
+    const pages = Math.ceil(houseCount / 8);
     setPageCount(pages);
+    window.scrollTo(0,0)
   }, [page , houseCount , houses]);
 
 
-  const handleFilter = (filters) => {
-    console.log(filters);
+  // const handleFilter = (filters) => {
+  //   console.log(filters);
   
-    // إذا لم يكن هناك فلتر، نعرض جميع المنازل
-    if (Object.values(filters).every(val =>
-      val === null || val === '' || (Array.isArray(val) && val.length === 0)
-    )) {
-      setFilteredHouses(houses);
-      return;
-    }
+  //   // إذا لم يكن هناك فلتر، نعرض جميع المنازل
+  //   if (Object.values(filters).every(val =>
+  //     val === null || val === '' || (Array.isArray(val) && val.length === 0)
+  //   )) {
+  //     setFilteredHouses(houses);
+  //     return;
+  //   }
     
   
-    // تصفية المنازل بناءً على الفلاتر
-    const filtered = houses.filter(house => {
-      return (
-        // تصفية المدينة
-        (!filters.city || house.city === filters.city) &&
+  //   // تصفية المنازل بناءً على الفلاتر
+  //   const filtered = houses.filter(house => {
+  //     return (
+  //       // تصفية المدينة
+  //       (!filters.city || house.city === filters.city) &&
         
-        // تصفية نوع العقار
-        (!filters.type || house.type === filters.type) &&
+  //       // تصفية نوع العقار
+  //       (!filters.type || house.type === filters.type) &&
         
-        // تصفية السعر
-        (!filters.price || house.price <= filters.price) &&
+  //       // تصفية السعر
+  //       (!filters.price || house.price <= filters.price) &&
         
-        // تصفية عدد الغرف
-        (!filters.bedrooms || house.bedrooms >= filters.bedrooms) &&
+  //       // تصفية عدد الغرف
+  //       (!filters.bedrooms || house.bedrooms >= filters.bedrooms) &&
         
-        // تصفية عدد الحمامات
-        (!filters.bathrooms || house.bathrooms >= filters.bathrooms) &&
+  //       // تصفية عدد الحمامات
+  //       (!filters.bathrooms || house.bathrooms >= filters.bathrooms) &&
         
-        // تصفية الحد الأقصى لعدد الأشخاص
-        (!filters.maxGroupSize || house.maxGroupSize <= filters.maxGroupSize) &&
+  //       // تصفية الحد الأقصى لعدد الأشخاص
+  //       (!filters.maxGroupSize || house.maxGroupSize <= filters.maxGroupSize) &&
         
-        // تصفية المرافق
-        (filters.amenities.length === 0 || filters.amenities.every(amenity => house.amenities[amenity]))
-      );
-    });
+  //       // تصفية المرافق
+  //       (filters.amenities.length === 0 || filters.amenities.every(amenity => house.amenities[amenity]))
+  //     );
+  //   });
   
-    // تحديث المنازل المفلترة
-    setFilteredHouses(filtered);
-  };
+  //   // تحديث المنازل المفلترة
+  //   setFilteredHouses(filtered);
+  // };
   
+const handleFilter = async (filters) => {
+  const params = new URLSearchParams();
+
+  if (filters.city) params.append('city', filters.city);
+  if (filters.type) params.append('type', filters.type);
+  if (filters.price) params.append('price', filters.price);
+  if (filters.bedrooms) params.append('bedrooms', filters.bedrooms);
+  if (filters.bathrooms) params.append('bathrooms', filters.bathrooms);
+  if (filters.maxGroupSize) params.append('maxGroupSize', filters.maxGroupSize);
+  if (filters.amenities.length) params.append('amenities', filters.amenities.join(','));
+  params.append('page', page);
+
+ 
+   const response = await fetch(`${BASE_URL}/houses?${params.toString()}`);
+   const result = await response.json();
+    setFilteredHouses(result.data);
+    setPageCount(Math.ceil(result.totalCount / 8));
+ 
+};
 
   useEffect(() => {
     if (houses.length > 0) {
       setFilteredHouses(houses); // إذا تم تحميل البيانات، تعيين العروض الأصلية
     }
   }, [houses]);
+
+ 
 
   return (
     <>
@@ -136,7 +161,7 @@ const Houses = () => {
 
            <Col lg='12'>
                  <div className='pagination d-flex align-items-center justify-content-center mt-4  gap-3'>
-           {[... Array(pageCount).keys()].map(number => (
+           {[...Array(pageCount).keys()].map(number => (
              <span 
              key={number} 
              onClick={() => setPage(number)}

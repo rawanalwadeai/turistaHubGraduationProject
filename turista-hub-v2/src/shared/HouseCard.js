@@ -18,9 +18,9 @@ const HouseCard = ({ house }) => {
         <Card>
           {/* Image with link */}
           <div className="tour__img">
-            <Link to={`/house/${_id}`}>
+          
               <img src={`${photo}?v=${Date.now()}`} alt="house" />
-            </Link>
+        
           </div>
 
           <CardBody>
@@ -37,7 +37,7 @@ const HouseCard = ({ house }) => {
 
             {/* Title with link */}
             <h5 className="tour__title">
-              <Link to={`/house/${_id}`}>{title}</Link>
+           {title}
             </h5>
 
             <div className="house__features d-flex align-items-center justify-content-between mt-2">
@@ -47,9 +47,9 @@ const HouseCard = ({ house }) => {
             <div className="card__bottom d-flex align-items-center justify-content-between mt-3">
               <h5>${price} <span>{t("perNight")}</span></h5>
 
-              <Link to={`/house/${_id}`} className="btn booking__btn">
+             <button className="btn booking__btn">
                 {t("viewDetails")}
-              </Link>
+              </button>
             </div>
           </CardBody>
         </Card>

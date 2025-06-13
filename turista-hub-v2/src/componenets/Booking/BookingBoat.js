@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { BASE_URL } from '../../utils/configB';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+import MyDatePicker from '../MyDatePicker';
 
 const BookingBoat = ({ boat, avgRating }) => {
   const { price_per_hour, reviews, boat_name, type } = boat;
@@ -13,19 +14,55 @@ const BookingBoat = ({ boat, avgRating }) => {
   const { user } = useContext(AuthContext);
   const { t } = useTranslation();
 
-  const [credentials, setCredentials] = useState({
-    userId: user && user._id,
-    userEmail: user && user.email,
-    fullName: '',
-    boatName: boat_name,
-    phone: '',
-    guestSize: 1,
-    rentalHours: 1
-  });
+const [credentials, setCredentials] = useState({
+  userId: user && user._id,
+  boatId: boat && boat._id,
+  userEmail: user && user.email,
+  fullName: '',
+  boatName: boat_name,
+  phone: '',
+  guestSize: 1,
+  rentalHours: 1,
+  bookingDate: '',
+  startTime: '',
+});
+const [excludedTimes, setExcludedTimes] = useState([]);
 
-  const handleChange = (e) => {
-    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-  };
+const handleDateChange = async (date) => {
+  const selectedDate = date.toISOString().split('T')[0]; // yyyy-mm-dd
+
+  setCredentials((prev) => ({
+    ...prev,
+    bookingDate: selectedDate,
+  }));
+
+  // 👇 طلب الساعات المحجوزة من الباك
+  try {
+    const res = await fetch(`${BASE_URL}/bookingBoat/disabled-times/${boat._id}?date=${selectedDate}`);
+    const data = await res.json();
+    if (res.ok) {
+      const disabled = data.disabledHours.map((hour) => {
+        const d = new Date(date);
+        d.setHours(hour, 0, 0, 0);
+        return d;
+      });
+      setExcludedTimes(disabled);
+    } else {
+      toast.error(data.message);
+    }
+  } catch (err) {
+    toast.error('Error loading disabled hours');
+  }
+};
+
+
+
+const handleChange = (e) => {
+  setCredentials((prev) => ({
+    ...prev,
+    [e.target.id]: e.target.value
+  }));
+};
 
   const serviceFee = 20; // ممكن تغييره حسب سياسة البوت
   const totalAmount =
@@ -51,8 +88,13 @@ const BookingBoat = ({ boat, avgRating }) => {
       const result = await res.json();
       if (!res.ok) return toast.error(result.message);
 
-      navigate('/thank-you');
-    } catch (err) {
+   const bookingId = result.data._id
+// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
+navigate(`/payment/boat/${bookingId}`)
+
+
+
+} catch (err) {
       toast.error(err.message);
     }
   };
@@ -103,7 +145,43 @@ const BookingBoat = ({ boat, avgRating }) => {
               onChange={handleChange}
             />
           </FormGroup>
+         
+      <FormGroup>
+        <MyDatePicker
+  selected={credentials.bookingDate ? new Date(credentials.bookingDate) : null}
+  onChange={handleDateChange}
+  minDate={new Date()}
+  placeholder={t('bookingDate')}
+/>
 
+<MyDatePicker
+  selected={
+    credentials.bookingDate && credentials.startTime
+      ? new Date(`${credentials.bookingDate}T${credentials.startTime}`)
+      : null
+  }
+  onChange={(date) => {
+    if (!credentials.bookingDate) {
+      toast.error(t('pleaseSelectBookingDateFirst')); // رسالة: اختر التاريخ أولاً
+      return;
+    }
+    const time = date.toTimeString().slice(0, 5); // hh:mm
+    setCredentials((prev) => ({
+      ...prev,
+      startTime: time,
+    }));
+  }}
+  minDate={
+    credentials.bookingDate
+      ? new Date(`${credentials.bookingDate}T00:00:00`)
+      : null
+  }
+  placeholder={t('startTime')}
+  excludeTimes={excludedTimes}
+  showTime={true}
+/>
+
+</FormGroup>
           <FormGroup className='d-flex gap-3'>
             <input
               type='number'
@@ -114,8 +192,18 @@ const BookingBoat = ({ boat, avgRating }) => {
               min={1}
             />
           </FormGroup>
+
+
+ 
+
         </Form>
       </div>
+
+
+
+
+
+
 
       {/* Booking Summary */}
       <div className='booking__bottom'>

@@ -142,7 +142,7 @@
     "description": "Description",
     "shareYourThoughts": "Share your thoughts",
     "submit": "Submit",
-    "sessionPrice": "{{price}} / session",
+    "sessionPrice": " / session",
     "languages": "Languages",
     "location": "Location",
     "rating": "Rating",
@@ -337,6 +337,11 @@
   "kitchen": "Kitchen",
   "laundry": "Laundry",
 
+  "startDate":"Check-in Date",
+"endDate0":"Check-out Date",
+"bookingDate":"Booking Date",
+"startTime":"Start Time",
+
 
 
    "City": "City",
@@ -440,7 +445,80 @@
   "regular_user": "Are you a regular user?",
   "register_here": "Register here",
   "already_have_account": "Already have an account?",
-  "login": "Login"
+  "login": "Login",
+
+  "request":"Request an Appointment",
+"res_translator":"We will contact you shortly to confirm the appointment details",
+  "requestt":"Request ",
+
+ "activity_type": "Activity Type",
+  "internet": "Internet",
+  "available": "Available",
+  "not_available": "Not Available",
+  "family_friendly": "Family Friendly",
+  "duration": "Duration",
+  "available_days": "Available Days",
+  "adventure_level": "Adventure Level",
+  "guide_included": "Guide Included",
+  "meals_included": "Meals Included",
+  "yes": "Yes",
+  "no": "No",
+  
+ 
+
+   "certified": "Certified",
+  "notCertified": "Not Certified",
+  "Beginner": "Beginner",
+  "Intermediate": "Intermediate",
+  "Advanced": "Advanced",
+  "sessionPrice": "per session",
+ 
+
+ "amenities": "Amenities",
+  "wifi": "Wi-Fi",
+  "airConditioning": "Air Conditioning",
+  "heating": "Heating",
+  "tv": "TV",
+  "kitchen": "Kitchen",
+  "coffeeMaker": "Coffee Maker",
+  "dishwasher": "Dishwasher",
+  "microwave": "Microwave",
+  "pool": "Swimming Pool",
+  "hotTub": "Hot Tub",
+  "petsAllowed": "Pets Allowed",
+  "smokingAllowed": "Smoking Allowed",
+  "elevator": "Elevator",
+  "restaurant": "Restaurant Available",
+  "breakfastIncluded": "Breakfast Included",
+  "businessCenter": "Business Center",
+  "wheelchairAccessible": "Wheelchair Accessible",
+  "parking": "Parking",
+  "Reserved Parking": "Reserved Parking",
+  "Private Parking": "Private Parking",
+  "laundry": "Laundry",
+  "In-unit Laundry": "In-unit Laundry",
+  "Nearby Laundromat": "Nearby Laundromat",
+
+  "noBookings": "No bookings yet.",
+  "bookingError": "Booking data error.",
+  "fetchError": "Failed to fetch bookings",
+  "serviceType.tour": "Tour",
+  "serviceType.house": "House",
+  "serviceType.car": "Car",
+  "serviceType.boat": "Boat",
+  "status.unknown": "Status Unknown",
+  "status.canceled": "Canceled",
+  "nameUnavailable": "Name Unavailable",
+
+    "editPhoto": "Click to edit photo",
+  "username": "Username",
+  "email": "Email",
+  "phone": "Phone",
+  "photoUrl": "Photo URL",
+  "saveChanges": "Save Changes",
+  "updateSuccess": "Profile updated successfully",
+  "bookingsTitle": "Your Bookings",
+  "updateSuccess": "Profile updated successfully"
 
 
 }

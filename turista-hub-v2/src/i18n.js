@@ -8,7 +8,7 @@ import translationEN from './locales/en/translation.json'
 
 
 i18n
-  // .use(LanguageDetector)
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {

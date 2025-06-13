@@ -19,7 +19,7 @@ export const createTour = async (req, res) => {
     }
 
     catch (err) {
-        res.status(500).json({success :false , message:'Failled to create, Try again'})
+        res.status(500).json({success :false , message:'Failled to create, Try again' , error:err.message})
 
     }
 }
@@ -116,41 +116,93 @@ export const getSingleTour = async(req,res) => {
 }
 
 
-//get all tour
-export const getAllTour = async(req,res) => {
+// //get all tour
+// export const getAllTour = async(req,res) => {
 
 
-//for pagination trqeem 
-const page = parseInt(req.query.page)
+// //for pagination trqeem 
+// const page = parseInt(req.query.page)
 
 
-console.log(page);
-    try{
+// console.log(page);
+//     try{
 
 
-        const tours =  await Tour
-        .find({})
-        .populate('reviews')
-        .skip(page * 8 )
-        .limit(8)
+//         const tours =  await Tour
+//         .find({})
+//         .populate('reviews')
+//         .skip(page * 8 )
+//         .limit(8)
 
        
-        res.status(200).json({
-            success: true,
-            count:tours.length,
-            message: 'Successfuly fetcheing all',
-            data:tours
+//         res.status(200).json({
+//             success: true,
+//             count:tours.length,
+//             message: 'Successfuly fetcheing all',
+//             data:tours
             
-        })
+//         })
         
-    }
-    catch (err){
-        res.status(500).json({
-            success :false ,
-             message:'not found' })
+//     }
+//     catch (err){
+//         res.status(500).json({
+//             success :false ,
+//              message:'not found' })
 
-    }
-}
+//     }
+// }
+// controllers/tourController.js
+
+//get all tours edition
+export const getAllTour = async (req, res) => {
+  const page = parseInt(req.query.page) || 0; // default to 0 if not provided
+  const limit = 8;
+  const skip = page * limit;
+
+  // فلترة بناء على الـ query params
+  const {
+    city,
+    activityType,
+    adventureLevel,
+    availableDays,
+    guideIncluded,
+    mealsIncluded
+  } = req.query;
+
+  const filter = {};
+
+  if (city) filter.city = city;
+  if (activityType) filter.activityType = { $in: activityType.split(',') };
+  if (adventureLevel) filter.adventureLevel = adventureLevel;
+  if (availableDays) filter.availableDays = { $in: availableDays.split(',') };
+  if (guideIncluded !== undefined) filter.guideIncluded = guideIncluded === 'true';
+  if (mealsIncluded !== undefined) filter.mealsIncluded = mealsIncluded === 'true';
+
+  try {
+    const tours = await Tour
+      .find(filter)
+      .populate('reviews')
+      .skip(skip)
+      .limit(limit);
+
+    const totalCount = await Tour.countDocuments(filter);
+
+    res.status(200).json({
+      success: true,
+      count: tours.length,
+      totalCount, // اجمالي نتائج الفلترة (مهم للباجينايشن)
+      message: 'Successfully fetched filtered tours',
+      data: tours
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      success: false,
+      message: 'Server Error'
+    });
+  }
+};
 
 
 

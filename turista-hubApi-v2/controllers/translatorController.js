@@ -15,6 +15,7 @@ export const createTranslator = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to create translator, try again",
+      error:err.message
     });
   }
 };
@@ -82,29 +83,89 @@ export const getSingleTranslator = async (req, res) => {
   }
 };
 
-// Get all translators with pagination
+// // Get all translators with pagination
+// export const getAllTranslators = async (req, res) => {
+//   const page = parseInt(req.query.page) || 0;
+
+//   try {
+//     const translators = await Translator.find({})
+//       .populate("reviews")
+//       .skip(page * 8)
+//       .limit(8);
+
+//     res.status(200).json({
+//       success: true,
+//       count: translators.length,
+//       message: "Successfully fetched all translators",
+//       data: translators,
+//     });
+//   } catch (err) {
+//     res.status(500).json({
+//       success: false,
+//       message: "Failed to fetch translators",
+//     });
+//   }
+// };
 export const getAllTranslators = async (req, res) => {
   const page = parseInt(req.query.page) || 0;
+  const limit = 8;
+  const skip = page * limit;
+
+  // استخراج الفلاتر من الاستعلام
+  const {
+    city,
+    languages,
+    expertiseLevel,
+    availability,
+    specializations,
+    isCertified,
+    pricePerHour,
+    rating,
+  } = req.query;
+
+  const filter = {};
+
+  if (city) filter.city = city;
+
+  if (languages) filter.languages = { $in: languages.split(',') };
+
+  if (expertiseLevel) filter.expertiseLevel = expertiseLevel;
+
+  if (availability) filter.availability = { $in: availability.split(',') };
+
+  if (specializations) filter.specializations = { $in: specializations.split(',') };
+
+  if (isCertified !== undefined)
+    filter.isCertified = isCertified === 'true';
+
+  if (pricePerHour) filter.pricePerHour = { $lte: parseFloat(pricePerHour) };
+
+  if (rating) filter.rating = { $gte: parseFloat(rating) };
 
   try {
-    const translators = await Translator.find({})
-      .populate("reviews")
-      .skip(page * 8)
-      .limit(8);
+    const translators = await Translator.find(filter)
+      .populate('reviews')
+      .skip(skip)
+      .limit(limit);
+
+    const totalCount = await Translator.countDocuments(filter);
 
     res.status(200).json({
       success: true,
       count: translators.length,
-      message: "Successfully fetched all translators",
+      totalCount,
+      message: 'Successfully fetched filtered translators',
       data: translators,
     });
   } catch (err) {
+    console.error('Error fetching translators:', err);
     res.status(500).json({
       success: false,
-      message: "Failed to fetch translators",
+      message: 'Server Error',
     });
   }
 };
+
 
 // Search translators by filters
 export const getTranslatorsBySearch = async (req, res) => {

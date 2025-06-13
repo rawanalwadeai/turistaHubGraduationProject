@@ -23,14 +23,15 @@ router.put('/:id', updateBoat);
 // حذف قارب
 router.delete('/:id', deleteBoat);
 
+// عدد القوارب
+router.get('/count', getBoatCount);
+
 // الحصول على قارب محدد
 router.get('/:id', getSingleBoat);
 
 // جميع القوارب (مع pagination)
 router.get('/', getAllBoats);
 
-// عدد القوارب
-router.get('/count', getBoatCount);
 
 // بحث
 router.get('/search', searchBoats);

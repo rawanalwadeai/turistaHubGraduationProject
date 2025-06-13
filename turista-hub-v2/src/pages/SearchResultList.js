@@ -17,7 +17,6 @@ const location = useLocation()
 
 const [data] = useState(location.state)
 
-console.log(data)
 
 
   return <>

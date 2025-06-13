@@ -1,4 +1,9 @@
 import User from '../models/User.js'
+import BookingTour from '../models/BookingTour.js';
+import BookingHouse from '../models/BookingHouse.js';
+import BookingCar from '../models/BookingCar.js';
+import BookingBoat from '../models/BookingBoat.js';
+// import BookingTranslator from '../models/BookingTranslator.js';
 
 
 //create newUser 
@@ -144,4 +149,18 @@ export const getAllUser = async(req,res) => {
     }
 }
 
+//get all bookings 
+// Express example:
+export const getAllBookings = async(req, res) => {
+  const userId = req.params.id;
+
+  // جلب الحجوزات من كل الكولكشنز باستخدام userId
+  const tours = await BookingTour.find({ userId });
+  const houses = await BookingHouse.find({ userId });
+  const cars = await BookingCar.find({ userId  });
+  const boats = await BookingBoat.find({ userId });
+//   const translators = await BookingTranslator.find({ userId });
+
+  res.json({ tours, houses, cars, boats });
+};
 

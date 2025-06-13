@@ -1,4 +1,6 @@
-import mongoose from 'mongoose';
+
+
+  import mongoose from 'mongoose';
 
 const houseSchema = new mongoose.Schema(
   {
@@ -34,8 +36,43 @@ const houseSchema = new mongoose.Schema(
 
     photo: {
       type: String,
-      required: true
+      // required: true
     },
+
+    images: {
+  type: [String],
+  default: []
+},
+
+    bedrooms: {
+  type: Number,
+  required: false
+},
+bathrooms: {
+  type: Number,
+  required: false
+},
+area: {
+  type: String, // أو Number حسب التنسيق
+  required: false
+},
+bookedGuests: {
+  type: Number,
+  default: 0
+},
+
+houseType: {
+  type: String,
+  enum: ['Apartment', 'Villa','Mountain House', 'Studio','Eco Cabin' ,'Traditional House','Cottage'],
+  default: 'Apartment'
+},
+
+ 
+
+location: {
+ type:String
+},
+
 
     reviews: [
       {

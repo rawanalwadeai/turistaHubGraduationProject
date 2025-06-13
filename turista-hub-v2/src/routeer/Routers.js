@@ -12,14 +12,15 @@ import Login from './../pages/Login';
 import Register from './../pages/Register';
 import SearchResultList from './../pages/SearchResultList';
 import ThankYou from '../componenets/ThankYou';
+import ThankTranslator from '../componenets/ThankTranslator';
+
 import Houses from './../pages/Houses';
 import Cars from '../pages/Cars';
 import Translator from '../pages/Translator';
 import Boat from '../pages/Boat'
 import BoatDetails from '../pages/BoatDetails';
-import RegisterProvider from '../pages/RegisterProvider';
-import LoginProvider from '../pages/LoginProvider';
-import ProviderDashboard from '../pages/dashboard/ProviderDashboard';
+import Payment from '../pages/Payment';
+import Profile from '../pages/Profile';
 
 
 
@@ -44,16 +45,20 @@ const Routers = () => {
 
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/providerRegister' element={<RegisterProvider />} />
-      <Route path='/loginProvider' element={<LoginProvider />} />
 
 
       <Route path='/thank-you' element={<ThankYou />}></Route>
+            <Route path='/thank' element={<ThankTranslator />}></Route>
+
       <Route path='/tour/search' element={<SearchResultList />} />
+      <Route path='/payment/:type/:id' element={<Payment/>}/>
 
       <Route path="*" element={<h2 style={{ textAlign: 'center' }}>404 - Page Not Found</h2>} />
 
-      <Route path='/provider-dashboard' element={<ProviderDashboard />} />
+      <Route path='/profile/:id' element={<Profile/>}/>
+
+
+
 
 
     </Routes>

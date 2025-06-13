@@ -49,7 +49,22 @@ const TourDetails = () => {
 
   // const { photo, title, desc, price, address, reviews, city, distance, maxGroupSize } = tour
   //chat gpt tell me to edit the above one to this 
-  const { photo, title, desc, price, address, reviews = [], city, maxGroupSize, tourDate } = tour || {}
+  const { photo, title, desc, price,activityType,
+internet,
+
+familyFriendly,
+
+durationType,
+
+availableDays,
+
+adventureLevel,
+
+guideIncluded,
+
+mealsIncluded,
+
+ address, reviews = [], city, maxGroupSize, tourDate } = tour || {}
 
 
   const { totalRating, avgRating } = calculateAvgRating(reviews)
@@ -179,7 +194,7 @@ const TourDetails = () => {
 
 
                       <span><i className="fa-solid fa-map-pin"></i> {city} </span>
-                      <span><i className="fa-solid fa-turkish-lira-sign"></i>${price} {t('per_person')}</span>
+                      <span><i class="fa-solid fa-dollar-sign"></i>${price} {t('per_person')}</span>
                       {/* <span><i className="fa-solid fa-clock"></i>{distance} k/m  </span> */}
 
                       <span><i className="fa-solid fa-user-group"></i> {maxGroupSize} {t('people')} </span>
@@ -189,6 +204,39 @@ const TourDetails = () => {
                         <i className="fa-solid fa-calendar-days"></i>{' '}
                         {new Date(tourDate).toLocaleDateString('en-CA')}
                       </span>
+
+                      
+  <span>
+    <i className="fa-solid fa-list"></i> {t('activity_type')}: {activityType?.join(', ')}
+  </span>
+
+  <span>
+    <i className="fa-solid fa-wifi"></i> {t('internet')}: {internet ? t('available') : t('not_available')}
+  </span>
+
+  <span>
+  <i class="fa-solid fa-house"></i> {t('family_friendly')}: {familyFriendly ? t('yes') : t('no')}
+  </span>
+
+  <span>
+    <i className="fa-solid fa-clock"></i> {t('duration')}: {durationType}
+  </span>
+
+  <span>
+    <i className="fa-solid fa-calendar-week"></i> {t('available_days')}: {availableDays?.join(', ')}
+  </span>
+
+  <span>
+    <i className="fa-solid fa-mountain"></i> {t('adventure_level')}: {adventureLevel}
+  </span>
+
+  <span>
+    <i className="fa-solid fa-person-hiking"></i> {t('guide_included')}: {guideIncluded ? t('yes') : t('no')}
+  </span>
+
+  <span>
+    <i className="fa-solid fa-utensils"></i> {t('meals_included')}: {mealsIncluded ? t('yes') : t('no')}
+  </span>
 
 
                     </div>
@@ -243,7 +291,7 @@ const TourDetails = () => {
 
                       {
                         reviews?.map(review => (
-                          <div className='review__item'>
+                          <div className='review__item' key={review._id}>
                             <img src={avatar} alt='' />
 
                             <div className='w-100'>

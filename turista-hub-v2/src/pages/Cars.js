@@ -35,41 +35,64 @@ const {data:carCount} = useFetchA(`${BASE_URL}/cars/count`)
   const [filteredCars, setFilteredCars] = useState(cars);
 
   useEffect(() => {
-    const pages = Math.ceil((carCount?.data || 0) / 4)
+    const pages = Math.ceil((carCount?.data || 0) / 8)
     setPageCount(pages)
   }, [page ,carCount , cars]
 
 )
 
-const handleFilter = (filters) => {
-  console.log(filters);
+// const handleFilter = (filters) => {
+//   console.log(filters);
 
-  // إذا لم يكن هناك فلتر، نعرض جميع السيارات
-  if (Object.values(filters).every(val =>
-    val === null || val === '' || (Array.isArray(val) && val.length === 0)
-  )) {
-    setFilteredCars(cars);
-    return;
-  }
+//   // إذا لم يكن هناك فلتر، نعرض جميع السيارات
+//   if (Object.values(filters).every(val =>
+//     val === null || val === '' || (Array.isArray(val) && val.length === 0)
+//   )) {
+//     setFilteredCars(cars);
+//     return;
+//   }
 
-  // تصفية السيارات بناءً على الفلاتر
-  const filtered = cars.filter(car => {
-    return (
-      (!filters.location || car.location === filters.location) &&
-      (!filters.type || car.type === filters.type) &&
-      (!filters.fuelType || car.fuelType === filters.fuelType) &&
-      (!filters.doors || car.doors === parseInt(filters.doors)) &&
-      (!filters.seats || car.seats === parseInt(filters.seats)) &&
-      (!filters.rentalPrice || car.price <= parseFloat(filters.rentalPrice)) &&
-      (!filters.transmission || car.transmission === filters.transmission) &&
-      (!filters.condition || car.condition === filters.condition) &&
-      (!filters.amenities || filters.amenities.every(a => car.amenities?.includes(a)))
-    );
-  });
+//   // تصفية السيارات بناءً على الفلاتر
+//   const filtered = cars.filter(car => {
+//     return (
+//       (!filters.location || car.location === filters.location) &&
+//       (!filters.type || car.type === filters.type) &&
+//       (!filters.fuelType || car.fuelType === filters.fuelType) &&
+//       (!filters.doors || car.doors === parseInt(filters.doors)) &&
+//       (!filters.seats || car.seats === parseInt(filters.seats)) &&
+//       (!filters.rentalPrice || car.price <= parseFloat(filters.rentalPrice)) &&
+//       (!filters.transmission || car.transmission === filters.transmission) &&
+//       (!filters.condition || car.condition === filters.condition) &&
+//       (!filters.amenities || filters.amenities.every(a => car.amenities?.includes(a)))
+//     );
+//   });
 
-  // تحديث السيارات المفلترة
-  setFilteredCars(filtered);
+//   // تحديث السيارات المفلترة
+//   setFilteredCars(filtered);
+// };
+
+
+const handleFilter = async (filters) => {
+  const params = new URLSearchParams();
+
+  if (filters.location) params.append('location', filters.location);
+  if (filters.type) params.append('type', filters.type);
+  if (filters.fuelType) params.append('fuelType', filters.fuelType);
+  if (filters.doors) params.append('doors', filters.doors);
+  if (filters.seats) params.append('seats', filters.seats);
+  if (filters.rentalPrice) params.append('rentalPrice', filters.rentalPrice);
+  if (filters.transmission) params.append('transmission', filters.transmission);
+  if (filters.condition) params.append('condition', filters.condition);
+  if (filters.amenities?.length) params.append('amenities', filters.amenities.join(','));
+  params.append('page', page); // الباجينايشن
+
+  const response = await fetch(`${BASE_URL}/cars?${params.toString()}`);
+  const result = await response.json();
+
+  setFilteredCars(result.data); // تحديث البيانات
+  setPageCount(Math.ceil(result.totalCount / 8)); // عدد الصفحات بناء على عدد النتائج
 };
+
 
 useEffect(() => {
   if (cars.length > 0) {

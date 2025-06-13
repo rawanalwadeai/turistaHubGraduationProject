@@ -5,6 +5,7 @@ import {
   createBoatBooking,
   getAllBoatBookings,
   getBoatBooking,
+  getUnavailableBoatDates
 } from "../controllers/bookingBoatController.js";
 
 const router = express.Router();
@@ -17,5 +18,6 @@ router.get('/:id', getBoatBooking);
 
 // الحصول على كل الحجوزات
 router.get('/', getAllBoatBookings);
+router.get('/disabled-times/:boatId' ,  getUnavailableBoatDates)
 
 export default router;

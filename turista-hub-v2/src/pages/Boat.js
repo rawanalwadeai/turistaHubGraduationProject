@@ -12,48 +12,71 @@ import { BASE_URL } from '../utils/configB.js';
 import { useTranslation } from 'react-i18next';
 const Boat = () => {
   const [pageCount, setPageCount] = useState(0);
-  const [page, setPage]         = useState(0);
-  const [showFilterPanel, setShowFilterPanel] = useState(false);
-  const [filteredBoats, setFilteredBoats]     = useState([]);
+  const [page, setPage] = useState(0);
 
 
-  const {t} = useTranslation()
+
+  const { t } = useTranslation()
   // جلب بيانات القوارب والعدد الكلي
-  const { data: boats, loading, error }       = useFetchA(`${BASE_URL}/boats?page=${page}`);
-  const { data: boatCount }                   = useFetchA(`${BASE_URL}/boats/count`);
+  const { data: boats, loading, error } = useFetchA(`${BASE_URL}/boats?page=${page}`);
+  const { data: boatCount } = useFetchA(`${BASE_URL}/boats/count`);
+  const [showFilterPanel, setShowFilterPanel] = useState(false);
 
-  // ضبط الباجينيشن
+  const [filteredBoats, setFilteredBoats] = useState(boats);
+
+
   useEffect(() => {
-    if (boatCount != null) {
-      const pages = Math.ceil(boatCount / 8);  // 8 قوارب في كل صفحة
-      setPageCount(pages);
-    }
-  }, [boatCount]);
+    const pages = Math.ceil((boatCount?.data || 0) / 8)
+    setPageCount(pages);
+    window.scrollTo(0, 0)
+  }, [page, boatCount, boats]);
+
+
+
+  // دالة التصفية
+  // const handleFilter = (filters) => {
+  //   if (Object.values(filters).every(v => v === '' || (Array.isArray(v) && v.length === 0))) {
+  //     return setFilteredBoats(boats);
+  //   }
+  //   const result = boats.filter(b => {
+  //     return (
+  //       (!filters.location || b.location.includes(filters.location)) &&
+  //       (!filters.maxPassengers || b.max_passengers >= filters.maxPassengers) &&
+  //       (!filters.pricePerHour || b.price_per_hour <= filters.pricePerHour) &&
+  //       (!filters.rating || b.rating >= filters.rating) &&
+  //       (filters.features.length === 0 || 
+  //         filters.features.every(f => b.features[f] === true)
+  //       )
+  //     );
+  //   });
+  //   setFilteredBoats(result);
+  // };
+  const handleFilter = async (filters) => {
+    const params = new URLSearchParams();
+
+    if (filters.location) params.append('location', filters.location);
+    if (filters.maxPassengers) params.append('maxPassengers', filters.maxPassengers);
+    if (filters.pricePerHour) params.append('pricePerHour', filters.pricePerHour);
+    if (filters.rating) params.append('rating', filters.rating);
+    if (filters.features?.length)
+      params.append('features', filters.features.join(','));
+
+    params.append('page', page);
+
+    const response = await fetch(`${BASE_URL}/boats?${params.toString()}`);
+    const result = await response.json();
+
+    setFilteredBoats(result.data);
+    setPageCount(Math.ceil(result.totalCount / 8));
+  };
+
 
   // عند وصول بيانات أول مرة، نعرضها بدون فلتر
   useEffect(() => {
-    if (boats) setFilteredBoats(boats);
-  }, [boats]);
-
-  // دالة التصفية
-  const handleFilter = (filters) => {
-    if (Object.values(filters).every(v => v === '' || (Array.isArray(v) && v.length === 0))) {
-      return setFilteredBoats(boats);
+    if (boats.length > 0) {
+      setFilteredBoats(boats);
     }
-    const result = boats.filter(b => {
-      return (
-        (!filters.location || b.location.includes(filters.location)) &&
-        (!filters.maxPassengers || b.max_passengers >= filters.maxPassengers) &&
-        (!filters.pricePerHour || b.price_per_hour <= filters.pricePerHour) &&
-        (!filters.rating || b.rating >= filters.rating) &&
-        (filters.features.length === 0 || 
-          filters.features.every(f => b.features[f] === true)
-        )
-      );
-    });
-    setFilteredBoats(result);
-  };
-
+  }, [boats]);
   return (
     <>
       <CommonSection title={t('boat_rentals')} />
@@ -86,16 +109,18 @@ const Boat = () => {
 
           {/* الحالة أثناء التحميل أو الخطأ */}
           {loading && <h4 className="text-center pt-5">{t('loading')}</h4>}
-          {error   && <h4 className="text-center pt-5">{error}</h4>}
+          {error && <h4 className="text-center pt-5">{error}</h4>}
 
           {/* عرض القوارب */}
           {!loading && !error && (
             <Row>
-              {filteredBoats.map(boat => (
-                <Col lg="3" className="mb-4" key={boat._id}>
-                  <BoatCard boats={boat} />
-                </Col>
-              ))}
+              {
+
+                filteredBoats.map(boat => (
+                  <Col lg="3" className="mb-4" key={boat._id}>
+                    <BoatCard boats={boat} />
+                  </Col>
+                ))}
 
               {/* الباجينيشن */}
               <Col lg="12">

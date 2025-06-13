@@ -129,7 +129,8 @@ export const createReview = async (req, res) => {
     console.error(err);
     res.status(500).json({
       success: false,
-      message: 'Failed to submit review.',
+      message: ' Rating (stars) is required ',
+      error:err.message
     });
   }
 };

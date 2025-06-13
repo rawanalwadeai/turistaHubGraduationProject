@@ -33,7 +33,7 @@ const BotDetails = () => {
     title,
     company_name,
     desc,
-    price,
+    price_per_hour,
     type,
     usage,
     speed,
@@ -132,7 +132,7 @@ const BotDetails = () => {
 
                     <span className="company__name">{company_name}</span>
 
-                    <span><i className="fa-solid fa-dollar-sign"></i>${price} {t('pricePerSession')}</span>
+                    <span><i class="fa-solid fa-dollar-sign"></i>${price_per_hour} {t('pricePerSession')}</span>
                     <span><i className="fa-solid fa-utensils"></i> {t('meals')}</span>
                     <span><i className="fa-solid fa-music"></i> {t('music')}</span>
                     <span><i className="fa-solid fa-wifi"></i> {t('wifi')}</span>

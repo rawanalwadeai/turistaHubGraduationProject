@@ -43,35 +43,54 @@ window.scrollTo(0,0)
 
 } , [page , tourCount , tours])
 
-const handleFilter = (filters) => {
-  console.log(filters);
+// const handleFilter = (filters) => {
+//   console.log(filters);
   
-  // إذا لم يكن هناك فلتر، نعرض جميع العروض
-  if (Object.values(filters).every(val =>
-    val === null || val === '' || (Array.isArray(val) && val.length === 0)
-  )) {
-    setFilteredTours(tours);
-    return;
-  }
+//   // إذا لم يكن هناك فلتر، نعرض جميع العروض
+//   if (Object.values(filters).every(val =>
+//     val === null || val === '' || (Array.isArray(val) && val.length === 0)
+//   )) {
+//     setFilteredTours(tours);
+//     return;
+//   }
   
   
 
   
-  // تصفية العروض بناءً على الفلاتر
-  const filtered = tours.filter(tour => {
-    return (
-      (!filters.city || tour.city === filters.city) &&
-      (!filters.activityType.length || filters.activityType.includes(tour.activityType)) &&
-      (!filters.adventureLevel || tour.adventureLevel === filters.adventureLevel) &&
-      (!filters.availableDays.length || filters.availableDays.some(day => tour.availableDays.includes(day))) &&
-      (filters.guideIncluded === null || tour.guideIncluded === filters.guideIncluded) &&
-      (filters.mealsIncluded === null || tour.mealsIncluded === filters.mealsIncluded) 
-      // (!filters.languages.length || filters.languages.some(lang => tour.languages.includes(lang)))
-    );
-  });
+//   // تصفية العروض بناءً على الفلاتر
+//   const filtered = tours.filter(tour => {
+//     return (
+//       (!filters.city || tour.city === filters.city) &&
+//       (!filters.activityType.length || filters.activityType.includes(tour.activityType)) &&
+//       (!filters.adventureLevel || tour.adventureLevel === filters.adventureLevel) &&
+//       (!filters.availableDays.length || filters.availableDays.some(day => tour.availableDays.includes(day))) &&
+//       (filters.guideIncluded === null || tour.guideIncluded === filters.guideIncluded) &&
+//       (filters.mealsIncluded === null || tour.mealsIncluded === filters.mealsIncluded) 
+//       // (!filters.languages.length || filters.languages.some(lang => tour.languages.includes(lang)))
+//     );
+//   });
 
-  // تحديث العروض المفلترة
-  setFilteredTours(filtered);
+//   // تحديث العروض المفلترة
+//   setFilteredTours(filtered);
+// };
+
+
+const handleFilter = async (filters) => {
+  const params = new URLSearchParams();
+
+  if (filters.city) params.append('city', filters.city);
+  if (filters.activityType.length) params.append('activityType', filters.activityType.join(','));
+  if (filters.adventureLevel) params.append('adventureLevel', filters.adventureLevel);
+  if (filters.availableDays.length) params.append('availableDays', filters.availableDays.join(','));
+  if (filters.guideIncluded !== null) params.append('guideIncluded', filters.guideIncluded);
+  if (filters.mealsIncluded !== null) params.append('mealsIncluded', filters.mealsIncluded);
+  params.append('page', page);
+
+  const response = await fetch(`${BASE_URL}/tours?${params.toString()}`);
+  const result = await response.json();
+
+  setFilteredTours(result.data);
+  setPageCount(Math.ceil(result.totalCount / 8));
 };
 
 
@@ -161,7 +180,7 @@ useEffect(() => {
 
       <Col lg='12'>
       <div className='pagination d-flex align-items-center justify-content-center mt-4  gap-3'>
-{[... Array(pageCount).keys()].map(number => (
+{[...Array(pageCount).keys()].map(number => (
   <span 
   key={number} 
   onClick={() => setPage(number)}

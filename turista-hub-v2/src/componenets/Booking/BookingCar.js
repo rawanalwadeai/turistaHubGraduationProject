@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext , useEffect } from 'react';
 import { FormGroup, Form, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -7,8 +7,10 @@ import { AuthContext } from '../../context/AuthContext';
 import { BASE_URL } from '../../utils/configB';
 import { toast } from 'react-toastify';
 
+
+import MyDatePicker from '../MyDatePicker';
 const BookingCar = ({ car, avgRating }) => {
-  const { price, reviews } = car;
+  const { price, reviews , title } = car;
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
@@ -16,6 +18,7 @@ const BookingCar = ({ car, avgRating }) => {
 
   const [booking, setBooking] = useState({
     userId: user && user._id,
+    // carId: car && car._id,
     userEmail: user && user.email,
     carId: car._id,
     fullName: '',
@@ -23,32 +26,69 @@ const BookingCar = ({ car, avgRating }) => {
     rentalDays: 1,
     pickupDate: '',
     endDate: '',
+    carTitle: title,
+    
   });
 
-  const handleChange = e => {
-    const { id, value } = e.target;
+    const [unavailableDates, setUnavailableDates] = useState([]);
+  
 
-    setBooking(prev => {
-      const updatedBooking = { ...prev, [id]: value };
-
-      if (id === 'pickupDate' || id === 'endDate') {
-        const pickup = id === 'pickupDate' ? value : prev.pickupDate;
-        const end = id === 'endDate' ? value : prev.endDate;
-
-        if (pickup && end) {
-          const startDate = new Date(pickup);
-          const endDate = new Date(end);
-
-          const timeDiff = endDate.getTime() - startDate.getTime();
-          const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-          updatedBooking.rentalDays = dayDiff > 0 ? dayDiff : 1;
-        }
+  useEffect(() => {
+    const fetchUnavailableDates = async () => {
+      try {
+        const res = await fetch(`${BASE_URL}/bookingCar/unavailable/${car._id}`);
+        const data = await res.json();
+        const dates = data.map(dateStr => new Date(dateStr));
+        setUnavailableDates(dates);
+      } catch (error) {
+        toast.error('errorLoadingDates');
       }
+    };
 
-      return updatedBooking;
-    });
+    if (car && car._id) {
+      fetchUnavailableDates();
+    }
+  }, [car]);
+ 
+
+  useEffect(() => {
+  if (booking.pickupDate && booking.endDate) {
+    const diffDays = Math.max(
+      1,
+      Math.ceil(
+        (new Date(booking.endDate) - new Date(booking.pickupDate)) / (1000 * 3600 * 24)
+      )
+    );
+    setBooking(prev => ({ ...prev, rentalDays: diffDays }));
+  }
+}, [booking.pickupDate, booking.endDate]);
+
+
+
+  const isDateUnavailable = (dateStr) => {
+    const dateToCheck = new Date(dateStr).toDateString();
+    return unavailableDates.some(date => new Date(date).toDateString() === dateToCheck);
   };
+  const handleInputChange = e => {
+    const { id, value } = e.target;
+    setBooking(prev => ({ ...prev, [id]: value }));
+  };
+  const handleStartDateChange = (date) => {
+  if (isDateUnavailable(date)) {
+    toast.error(t('dateUnavailable'));
+    return;
+  }
+  setBooking(prev => ({ ...prev, pickupDate: date.toISOString() }));
+};
+
+const handleEndDateChange = (date) => {
+  if (isDateUnavailable(date)) {
+    toast.error(t('dateUnavailable'));
+    return;
+  }
+  setBooking(prev => ({ ...prev, endDate: date.toISOString() }));
+};
+
 
   const serviceFee = 15;
   const totalAmount = Number(price) * Number(booking.rentalDays) + Number(serviceFee);
@@ -75,8 +115,13 @@ const BookingCar = ({ car, avgRating }) => {
         return toast.error(result.message);
       }
 
-      navigate('/thank-you');
-    } catch (err) {
+   const bookingId = result.data._id
+// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
+navigate(`/payment/car/${bookingId}`)
+
+
+
+} catch (err) {
       toast.error(err.message);
     }
   };
@@ -104,7 +149,7 @@ const BookingCar = ({ car, avgRating }) => {
               placeholder={t('fullNamePlaceholder')}
               id='fullName'
               required
-              onChange={handleChange}
+              onChange={handleInputChange}
             />
           </FormGroup>
 
@@ -114,27 +159,28 @@ const BookingCar = ({ car, avgRating }) => {
               placeholder={t('phonePlaceholder')}
               id='phone'
               required
-              onChange={handleChange}
+              onChange={handleInputChange}
             />
           </FormGroup>
 
           <FormGroup className='d-flex gap-3'>
-            <input
-              onKeyDown={e => e.preventDefault()}
-              type='date'
-              id='pickupDate'
-              required
-              min={new Date().toISOString().split('T')[0]}
-              onChange={handleChange}
-            />
-            <input
-              onKeyDown={e => e.preventDefault()}
-              type='date'
-              id='endDate'
-              required
-              min={new Date().toISOString().split('T')[0]}
-              onChange={handleChange}
-            />
+         <MyDatePicker
+  selected={booking.pickupDate ? new Date(booking.pickupDate) : null}
+  onChange={handleStartDateChange}
+  minDate={new Date()}
+  placeholder={t('startDate')}
+  excludeDates={unavailableDates}
+/>
+
+<MyDatePicker
+  selected={booking.endDate ? new Date(booking.endDate) : null}
+  onChange={handleEndDateChange}
+  minDate={booking.pickupDate ? new Date(new Date(booking.pickupDate).getTime() + 24 * 60 * 60 * 1000) : new Date()}
+  placeholder={t('endDate')}
+  excludeDates={unavailableDates}
+/>
+
+          
           </FormGroup>
 
           <FormGroup>

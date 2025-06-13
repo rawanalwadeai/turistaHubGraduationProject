@@ -2,8 +2,13 @@ import mongoose from "mongoose";
 
 const bookingBoatSchema = new mongoose.Schema(
   {
+      userId: {
+     type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+
     boatId: {
-      type: String,
+      type:mongoose.Schema.Types.ObjectId,
       ref: "Boat", // نربط المستخدم بالموديل الخاص بالمستخدمين
     },
     userEmail: {
@@ -27,17 +32,39 @@ const bookingBoatSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    startTime: {
+  type: String,
+  required: true
+},
+
+  bookingDate: {
+  type: Date,
+  required: true
+},
     guestSize: {
       type: Number,
       required: true,
     },
   
     
+    
     rentalHours : {
         type: Number,
         required:true
     },
    
+    paymentStatus:{
+      type:String,
+      enum:["pending", "paid", "cancelled"],
+      default:"pending"
+    },
+     bookAt: {
+        type:Date,
+        required:false,
+         default: Date.now,
+    },
+
+    
   },
   { timestamps: true }
 );

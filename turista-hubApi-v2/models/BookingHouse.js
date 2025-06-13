@@ -4,9 +4,12 @@ const bookingHouseSchema = new mongoose.Schema(
 
 {
 
-
+  userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
 houseId: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Houses",
     },
     userEmail: {
@@ -24,8 +27,12 @@ houseId: {
         type:Number,
         required:true
     },
+    rentalDays:{
+type:Number,
+
+    },
     phone: {
-        type:Number,
+        type:String,
         required:true
     },
     bookAt: {
@@ -36,6 +43,12 @@ houseId: {
     bookEndAt: {
         type:Date,
     },
+    paymentStatus:{
+      type:String,
+      enum:["pending", "paid", "cancelled"],
+      default:"pending"
+    }
+
 
 
   },
