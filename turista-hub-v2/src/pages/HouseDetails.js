@@ -2,9 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from 'react';
 import '../styles/tour-details.css';
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap';
 import { useParams } from 'react-router-dom';
-import houseData from '../assets/data/houses.js';
 import calculateAvgRating from '../utils/avgRating';
-
 import avatar from '../assets/images/avatar.jpg';
 import BookingHouse from '../componenets/Booking/BookingHouse.js';
 import useFetchA from '../hooks/useFetchA.js';
@@ -13,7 +11,6 @@ import { AuthContext } from './../context/AuthContext';
 import { toast } from 'react-toastify';
 import Slider from 'react-slick'
 
-// استيراد useTranslation
 import { useTranslation } from 'react-i18next';
 
 const HouseDetails = () => {
@@ -23,10 +20,8 @@ const HouseDetails = () => {
   const { user } = useContext(AuthContext);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // ترجمة
   const { t } = useTranslation();
 
-  // جلب بيانات المنزل
   const { data: house, loading, error } = useFetchA(`${BASE_URL}/houses/${id}`);
 
   const { photo,images, title, desc, price, address, reviews, city,amenities, maxGroupSize, bedrooms, bathrooms, area } = house || {};

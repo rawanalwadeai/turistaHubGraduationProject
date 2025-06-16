@@ -56,7 +56,6 @@ const Booking = ({ tour, avgRating }) => {
 
 
      const bookingId = result.data._id
-// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
 navigate(`/payment/tour/${bookingId}`)
 
 

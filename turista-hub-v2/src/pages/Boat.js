@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CommonSection from '../shared/CommonSection.js';
 import '../styles/tour.css';
-import BoatCard from '../shared/BoatCard.js';            // كارت القارب
+import BoatCard from '../shared/BoatCard.js';           
 import BoatFilter from '../componenets/BoatFilter.js';
 import { Container, Row, Col } from 'reactstrap';
 

@@ -4,6 +4,8 @@ import ava01 from '../../assets/images/ava-1.jpg'
 import ava02 from '../../assets/images/ava-2.jpg'
 import ava03 from '../../assets/images/ava-3.jpg'
 
+
+//fake Testimonial till i get the app published
 const Testimonial = () => {
 
 

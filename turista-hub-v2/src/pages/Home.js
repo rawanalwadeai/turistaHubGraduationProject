@@ -17,7 +17,6 @@ import FeaturedBoatList from '../componenets/Featured-boats/FeaturedBoatList'
 
 
 
-import experienceImg from '../assets/images/experience.png'
 
 
 

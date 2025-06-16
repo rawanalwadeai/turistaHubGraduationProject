@@ -3,9 +3,7 @@ import CommonSection from '../shared/CommonSection'
 
 
 import '../styles/tour.css'
-import tourData from '../assets/data/tours.js'
 import TourCard from './../shared/TourCard'
-import SearchBar from '../shared/SearchBar'
 import { Container ,Row ,Col } from 'reactstrap'
 
 
@@ -43,36 +41,6 @@ window.scrollTo(0,0)
 
 } , [page , tourCount , tours])
 
-// const handleFilter = (filters) => {
-//   console.log(filters);
-  
-//   // إذا لم يكن هناك فلتر، نعرض جميع العروض
-//   if (Object.values(filters).every(val =>
-//     val === null || val === '' || (Array.isArray(val) && val.length === 0)
-//   )) {
-//     setFilteredTours(tours);
-//     return;
-//   }
-  
-  
-
-  
-//   // تصفية العروض بناءً على الفلاتر
-//   const filtered = tours.filter(tour => {
-//     return (
-//       (!filters.city || tour.city === filters.city) &&
-//       (!filters.activityType.length || filters.activityType.includes(tour.activityType)) &&
-//       (!filters.adventureLevel || tour.adventureLevel === filters.adventureLevel) &&
-//       (!filters.availableDays.length || filters.availableDays.some(day => tour.availableDays.includes(day))) &&
-//       (filters.guideIncluded === null || tour.guideIncluded === filters.guideIncluded) &&
-//       (filters.mealsIncluded === null || tour.mealsIncluded === filters.mealsIncluded) 
-//       // (!filters.languages.length || filters.languages.some(lang => tour.languages.includes(lang)))
-//     );
-//   });
-
-//   // تحديث العروض المفلترة
-//   setFilteredTours(filtered);
-// };
 
 
 const handleFilter = async (filters) => {

@@ -1,6 +1,5 @@
 import React, { use } from 'react'
 import TourCard from '../../shared/TourCard'
-import tourData from '../../assets/data/tours'
 import { Col } from 'reactstrap'
 import useFetch from './../../hooks/useFetchA'
 import {BASE_URL} from './../../utils/configB'

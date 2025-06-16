@@ -8,7 +8,7 @@ import {BASE_URL} from './../../utils/configB'
 import { useTranslation } from 'react-i18next'
 
 const FeaturedBoatList = () => {
-    const { t } = useTranslation();  // تفعيل الترجمة
+    const { t } = useTranslation();  
   
   const {data: featuredBoats, loading ,error} = useFetch(`${BASE_URL}/boats/featured/getFeaturedBoats`) 
   return (

@@ -16,7 +16,6 @@ const HouseCard = ({ house }) => {
     <div className="tour__card">
       <Link to={`/house/${_id}`} className='tour__card-link'>
         <Card>
-          {/* Image with link */}
           <div className="tour__img">
           
               <img src={`${photo}?v=${Date.now()}`} alt="house" />
@@ -35,7 +34,6 @@ const HouseCard = ({ house }) => {
               </span>
             </div>
 
-            {/* Title with link */}
             <h5 className="tour__title">
            {title}
             </h5>

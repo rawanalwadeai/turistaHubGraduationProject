@@ -56,7 +56,6 @@ const BookingTranslator = ({ translator, avgRating }) => {
 
 
      const bookingId = result.data._id
-// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
 navigate(`/thank`)
 
 

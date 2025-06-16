@@ -3,7 +3,6 @@ import CommonSection from '../shared/CommonSection.js';
 
 import '../styles/tour.css'
 import HouseCard from '../shared/HouseCard.js';
-import SearchBarHouse from '../shared/SearchBarHouse.js';
 import { Container, Row, Col } from 'reactstrap';
 
 
@@ -38,48 +37,6 @@ const Houses = () => {
     window.scrollTo(0,0)
   }, [page , houseCount , houses]);
 
-
-  // const handleFilter = (filters) => {
-  //   console.log(filters);
-  
-  //   // إذا لم يكن هناك فلتر، نعرض جميع المنازل
-  //   if (Object.values(filters).every(val =>
-  //     val === null || val === '' || (Array.isArray(val) && val.length === 0)
-  //   )) {
-  //     setFilteredHouses(houses);
-  //     return;
-  //   }
-    
-  
-  //   // تصفية المنازل بناءً على الفلاتر
-  //   const filtered = houses.filter(house => {
-  //     return (
-  //       // تصفية المدينة
-  //       (!filters.city || house.city === filters.city) &&
-        
-  //       // تصفية نوع العقار
-  //       (!filters.type || house.type === filters.type) &&
-        
-  //       // تصفية السعر
-  //       (!filters.price || house.price <= filters.price) &&
-        
-  //       // تصفية عدد الغرف
-  //       (!filters.bedrooms || house.bedrooms >= filters.bedrooms) &&
-        
-  //       // تصفية عدد الحمامات
-  //       (!filters.bathrooms || house.bathrooms >= filters.bathrooms) &&
-        
-  //       // تصفية الحد الأقصى لعدد الأشخاص
-  //       (!filters.maxGroupSize || house.maxGroupSize <= filters.maxGroupSize) &&
-        
-  //       // تصفية المرافق
-  //       (filters.amenities.length === 0 || filters.amenities.every(amenity => house.amenities[amenity]))
-  //     );
-  //   });
-  
-  //   // تحديث المنازل المفلترة
-  //   setFilteredHouses(filtered);
-  // };
   
 const handleFilter = async (filters) => {
   const params = new URLSearchParams();

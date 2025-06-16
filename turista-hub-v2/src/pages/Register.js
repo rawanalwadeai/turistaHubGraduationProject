@@ -92,7 +92,6 @@ const handleClick = async e => {
       return toast.error(result.message);
     }
 
-    // ✅ تسجيل الدخول تلقائياً بعد التسجيل:
     const loginRes = await fetch(`${BASE_URL}/auth/login`, {
       method: 'post',
       headers: {

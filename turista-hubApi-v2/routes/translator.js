@@ -6,14 +6,14 @@ const router = express.Router()
 
 
 
-router.post('/', createTranslator)                  // Create new translator
-router.put('/:id', updateTranslator)                // Update translator
-router.delete('/:id', deleteTranslator)             // Delete translator
-router.get('/:id', getSingleTranslator)             // Get single translator
-router.get('/', getAllTranslators)                  // Get all translators (with pagination)
-router.get('/search/by-filter', getTranslatorsBySearch)  // Search translators
-// router.get('/featured/top-rated', getTopRatedTranslators) // Top rated translators
-router.get('/count/total', getTranslatorCount)      // Count all translators
+router.post('/', createTranslator)                
+router.put('/:id', updateTranslator)                
+router.delete('/:id', deleteTranslator)             
+router.get('/:id', getSingleTranslator)             
+router.get('/', getAllTranslators)                  
+router.get('/search/by-filter', getTranslatorsBySearch) 
+// router.get('/featured/top-rated', getTopRatedTranslators) 
+router.get('/count/total', getTranslatorCount)     
 
 
 export default router

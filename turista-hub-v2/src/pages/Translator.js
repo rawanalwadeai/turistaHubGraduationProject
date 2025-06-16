@@ -5,7 +5,6 @@ import { Container, Row, Col } from 'reactstrap';
 import useFetchA from '../hooks/useFetchA';
 import { BASE_URL } from '../utils/configB';
 import TranslatorCard from '../shared/translatorCard';
-import SearchBar from '../shared/SearchBar';
 import TranslatorFilter from '../componenets/TranslatorFilter';
 
 import '../styles/tour.css';

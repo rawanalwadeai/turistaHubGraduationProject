@@ -90,7 +90,7 @@ export const getUnavailableHouse = async (req, res) => {
 
     res.json(allUnavailableDates);
   } catch (err) {
-    res.status(500).json({ message: 'خطأ في جلب التواريخ المحجوزة' });
+    res.status(500).json({ message: 'Error ' });
   }
 };
 

@@ -3,7 +3,6 @@ import BookingTour from '../models/BookingTour.js';
 import BookingHouse from '../models/BookingHouse.js';
 import BookingCar from '../models/BookingCar.js';
 import BookingBoat from '../models/BookingBoat.js';
-// import BookingTranslator from '../models/BookingTranslator.js';
 
 
 //create newUser 

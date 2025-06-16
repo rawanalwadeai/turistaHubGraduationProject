@@ -55,7 +55,7 @@ const AuthReducer = (state, action) => {
                 error: null
             }
 
-        case 'UPDATE_USER':   // ← أضف هذه الحالة
+        case 'UPDATE_USER':   
             return {
                 ...state,
                 user: { ...state.user, ...action.payload }

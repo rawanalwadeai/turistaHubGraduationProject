@@ -14,7 +14,7 @@ const location = useLocation();
 
 
 
-    // تنظيف التوستات عند تغيير الصفحة
+    // for cleaning the notiv. toasts when the page changed
   useEffect(() => {
     toast.dismiss();
   }, [location]);

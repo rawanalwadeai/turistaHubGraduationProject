@@ -36,7 +36,6 @@ const corsOptions = {
     credentials:true
 }
 
-// Database connection  with mdb
 
 mongoose.set('strictQuery' , false)
 const connect = async () => {

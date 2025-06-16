@@ -27,7 +27,6 @@ const SearchBarHouse = () => {
             return toast.error('Start date cannot be later than end date.')
         }
         
-        // يمكن إضافة الكود الخاص بإرسال البيانات هنا
     }
 
     return <Col lg='12'>

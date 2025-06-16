@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState, useContext } from 'react'
 import '../styles/tour-details.css'
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap'
 import { useParams } from 'react-router-dom'
-import tourData from '../assets/data/tours.js'
 import calculateAvgRating from '../utils/avgRating'
 
 
@@ -39,16 +38,8 @@ const TourDetails = () => {
 
 
 
-  // //this is temporary static data bc later we will call our ABI and load our data from daatbase
-  // const tour = tourData.find(tour => tour.id === id)
-  //G
-  //FETCH DATA DROM DATABASE
   const { data: tour, loading, error } = useFetchA(`${BASE_URL}/tours/${id}`)
 
-  //destructure properties from tour object 
-
-  // const { photo, title, desc, price, address, reviews, city, distance, maxGroupSize } = tour
-  //chat gpt tell me to edit the above one to this 
   const { photo, title, desc, price,activityType,
 internet,
 
@@ -132,7 +123,7 @@ mealsIncluded,
 
     }
      finally {
-    setIsSubmitting(false); // نسمح بالإرسال مرة ثانية
+    setIsSubmitting(false); 
   }
   }
 

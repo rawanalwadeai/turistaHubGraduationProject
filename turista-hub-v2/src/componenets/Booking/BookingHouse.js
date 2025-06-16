@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { BASE_URL } from '../../utils/configB';
 import { toast } from 'react-toastify';
-import { useTranslation } from 'react-i18next';  // استدعاء useTranslation
+import { useTranslation } from 'react-i18next';  
 import MyDatePicker from '../MyDatePicker';
 const BookingHouse = ({ house, avgRating }) => {
-  const { t } = useTranslation();  // تفعيل الترجمة
+  const { t } = useTranslation();  
   const { price, reviews, title } = house;
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
@@ -114,7 +114,6 @@ const totalAmount = (Number(price) * Number(credentials.rentalDays)) + Number(se
 
       // navigate('/thank-you');
       const bookingId = result.data._id
-      // ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
       navigate(`/payment/house/${bookingId}`)
 
     } catch (err) {

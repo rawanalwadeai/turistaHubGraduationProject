@@ -189,7 +189,7 @@ export const getFeaturedBoats = async (req, res) => {
     // try {
     //   const boats = await Boat.find({ rating: { $gte: 2 } })
     //     .populate('reviews')
-    //     .limit(8) // حطي العدد اللي يناسبك
+    //     .limit(8) 
   
     //   res.status(200).json({
     //     success: true,

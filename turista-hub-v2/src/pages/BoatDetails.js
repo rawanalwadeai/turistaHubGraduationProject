@@ -13,7 +13,6 @@ import avatar from '../assets/images/avatar.jpg';
 
 import { useTranslation } from 'react-i18next';
 
-// import Booking from '../componenets/Booking/Booking.js';
 
 const BotDetails = () => {
   const { id } = useParams();

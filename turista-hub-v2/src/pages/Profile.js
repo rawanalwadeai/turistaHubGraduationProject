@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-toastify';
-import BookingCards from '../componenets/BookingCards'; // تأكد من المسار صحيح
+import BookingCards from '../componenets/BookingCards'; 
 import '../styles/profile.css';
 import { useTranslation } from 'react-i18next';
 

@@ -36,7 +36,6 @@ const handleDateChange = async (date) => {
     bookingDate: selectedDate,
   }));
 
-  // 👇 طلب الساعات المحجوزة من الباك
   try {
     const res = await fetch(`${BASE_URL}/bookingBoat/disabled-times/${boat._id}?date=${selectedDate}`);
     const data = await res.json();
@@ -64,7 +63,7 @@ const handleChange = (e) => {
   }));
 };
 
-  const serviceFee = 20; // ممكن تغييره حسب سياسة البوت
+  const serviceFee = 20; //  اغيره بعدين  
   const totalAmount =
     Number(price_per_hour) * Number(credentials.rentalHours || 1) + Number(serviceFee);
 
@@ -89,7 +88,6 @@ const handleChange = (e) => {
       if (!res.ok) return toast.error(result.message);
 
    const bookingId = result.data._id
-// ✅ استخدمي bookingId للتنقل إلى صفحة الدفع
 navigate(`/payment/boat/${bookingId}`)
 
 

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import CommonSection from '../shared/CommonSection'
 import '../styles/tour.css'
 
-import carData from '../assets/data/cars.js'
 import CarCard from '../shared/CarCard'
-// import SearchBar from '../shared/SearchBar'
 import { Container, Row, Col } from 'reactstrap'
 
 

@@ -56,7 +56,7 @@ const TranslatorDetails = () => {
         rating: translatorRating,
       }
 
-        setIsSubmitting(true); // قفل الإرسال مؤقتًا
+        setIsSubmitting(true); 
 
 
       const res = await fetch(`${BASE_URL}/reviews/translator/${id}`, {
@@ -76,7 +76,7 @@ const TranslatorDetails = () => {
       toast.error(err.message)
     }
      finally {
-    setIsSubmitting(false); // نسمح بالإرسال مرة ثانية
+    setIsSubmitting(false); 
   }
   }
 

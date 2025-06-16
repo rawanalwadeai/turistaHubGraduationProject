@@ -29,14 +29,12 @@ const BoatCard = ({ boats }) => {
     <div className="tour__card">
       <Link to={`/boats/${_id}`} className='tour__card-link'>
         <Card>
-          {/* صورة القارب */}
           <div className="tour__img">
             <img src={image_url} alt="boat" />
             {featured && <span>{t("featured")}</span>}
           </div>
 
           <CardBody>
-            {/* معلومات الموقع واسم الشركة */}
             <div className="card__top d-flex align-items-center justify-content-between">
               <span className="tour__location d-flex align-items-center gap-1">
                 <i className="fa-solid fa-location-dot"></i> {location}
@@ -48,19 +46,19 @@ const BoatCard = ({ boats }) => {
               </span>
             </div>
 
-            {/* اسم القارب */}
+          
             <h5 className="tour__title">
               {boat_name}
             </h5>
 
-            {/* عدد الركاب */}
+            
             <div className="tour__features d-flex align-items-center justify-content-between mt-2">
               <span>
                 <i className="fa-solid fa-user-group"></i> {t("upToGuests", { count: max_passengers })}
               </span>
             </div>
 
-            {/* السعر وزر التفاصيل */}
+            
             <div className="card__bottom d-flex align-items-center justify-content-between mt-3">
               <h5>${price_per_hour} <span>/{t("perHour")}</span></h5>
              <button  className="btn booking__btn">

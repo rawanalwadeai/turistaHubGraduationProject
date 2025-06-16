@@ -81,7 +81,6 @@ export const getAllBooking = async (req,res) => {
 
 
 
-// GET /bookingHouse/unavailable/:houseId
 export const getUnavailableCar = async (req, res) => {
   const { carId } = req.params;
 

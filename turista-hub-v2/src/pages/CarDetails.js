@@ -1,5 +1,5 @@
 import React, { useRef, useState, useContext, useEffect } from 'react';
-import '../styles/tour-details.css'; // يمكن تخصيص ملف CSS لصفحة تفاصيل السيارة
+import '../styles/tour-details.css'; 
 import { Container, Row, Col, Form, ListGroup } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import calculateAvgRating from '../utils/avgRating';
@@ -84,13 +84,13 @@ const CarDetails = () => {
         return toast.error(result.message)
       }
 
-      toast.success(result.message) //?
+      toast.success(result.message) 
 
     } catch (err) {
       toast.error(err.message)
 
     }  finally {
-    setIsSubmitting(false); // نسمح بالإرسال مرة ثانية
+    setIsSubmitting(false); 
   }
 
   };
