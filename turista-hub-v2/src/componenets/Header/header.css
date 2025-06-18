@@ -103,3 +103,16 @@ z-index: 999;
     width: calc(100% -50%);
 }
 }
+
+
+@media only screen and (max-width: 1024px) {
+    .logo img {
+        width: 30%;
+    }
+
+    .menu {
+        width: 60%;
+    }
+
+ 
+}
