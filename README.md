@@ -14,7 +14,6 @@ Platform, konaklama, araç kiralama, tekne turu, tercümanlık ve tur hizmetleri
 - `backend/` — Sunucu tarafı kodları (Node.js, Express, MongoDB)  
 - `frontend/` — İstemci tarafı kodları (React.js)  
 - `.gitignore` — Git tarafından takip edilmeyecek dosya ve klasörleri belirler  
-- `.env` — Ortam değişkenleri (MongoDB bağlantı dizesi vb.) — gizli tutulmalıdır
 
 ---
 
