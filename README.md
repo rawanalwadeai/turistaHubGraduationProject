@@ -22,7 +22,7 @@ Platform, konaklama, araç kiralama, tekne turu, tercümanlık ve tur hizmetleri
 
 - Node.js v18.x önerilir  
 - npm (Node Package Manager)  
-- MongoDB Atlas (Bulut veritabanı hesabı)
+-  MongoDB Compass
 
 ---
 
