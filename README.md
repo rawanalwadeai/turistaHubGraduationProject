@@ -48,10 +48,12 @@ npm install
 
 # Backend için (geliştirme modunda otomatik izler)
 cd turista-hubApi-v2
+npm install
 npm run start-dev
 
 # Başka terminalde frontend için
 cd turista-hub-v2
+npm install --legacy-peer-deps
 npm start
 
 
